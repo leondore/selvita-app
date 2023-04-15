@@ -1,5 +1,9 @@
-import { Poppins } from 'next/font/google';
-import { Montserrat } from 'next/font/google';
+import { Poppins, Montserrat } from 'next/font/google';
+
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+
 import '../styles/main.css';
 
 const poppins = Poppins({

@@ -1,9 +1,14 @@
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/pro-regular-svg-icons';
 
 export default function Home() {
+  const element = <FontAwesomeIcon icon={faEnvelope} />;
+
   return (
     <main>
       <div>
+        {element}
         <p className="font-sans">
           Get started by editing&nbsp;
           <code className="font-display">app/page.tsx</code>
