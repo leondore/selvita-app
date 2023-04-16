@@ -1,12 +1,9 @@
 import Image from 'next/image';
-import BaseIcon from '@/components/BaseIcon';
 
 export default function Home() {
   return (
     <main>
       <div>
-        <BaseIcon icon="reg-circle-check" className="text-2xl" />
-
         <p className="font-sans">
           Get started by editing&nbsp;
           <code className="font-display">app/page.tsx</code>

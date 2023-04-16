@@ -19,6 +19,9 @@ module.exports = {
         success: '#4DA858',
         warning: '#FFBA2D',
         danger: '#CC2936',
+        overlay: {
+          link: 'rgba(0, 0, 0, 0.25)',
+        },
       },
       fontFamily: {
         sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],

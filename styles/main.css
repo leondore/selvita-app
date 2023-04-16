@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-base font-light text-gray-800;
+  }
+}
+
+@layer components {
+  .divider {
+    @apply mx-4 text-base leading-none opacity-50;
+  }
+}

@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
 import '../styles/main.css';
+import TopBar from '@/components/layout/TopBar';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -32,7 +33,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${montserrat.variable}`}>
-      <body>{children}</body>
+      <body>
+        <header>
+          <TopBar />
+        </header>
+
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
