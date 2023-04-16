@@ -1,14 +1,12 @@
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/pro-regular-svg-icons';
+import BaseIcon from '@/components/BaseIcon';
 
 export default function Home() {
-  const element = <FontAwesomeIcon icon={faEnvelope} />;
-
   return (
     <main>
       <div>
-        {element}
+        <BaseIcon icon="reg-circle-check" className="text-2xl" />
+
         <p className="font-sans">
           Get started by editing&nbsp;
           <code className="font-display">app/page.tsx</code>
