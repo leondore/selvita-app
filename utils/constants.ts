@@ -6,3 +6,9 @@ export const contactInfo = {
   twitter: 'https://twitter.com/',
   pinterest: 'https://www.pinterest.com/',
 };
+
+export const nav = [
+  { name: 'Blog', path: '/' },
+  { name: 'Recetas', path: '/recetas' },
+  { name: 'Contacto', path: '/contacto' },
+];
