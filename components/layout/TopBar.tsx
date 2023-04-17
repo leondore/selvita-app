@@ -11,10 +11,13 @@ const socialNetworks = [
 
 const TopBar = () => {
   return (
-    <div className="flex items-center justify-between bg-dark px-10 text-xs font-normal text-white md:h-9">
-      <div className="flex items-center py-2.5">
+    <div className="flex flex-col items-center justify-center bg-dark px-4 text-xs font-normal text-white md:h-9 md:flex-row md:justify-between md:px-10">
+      <div className="flex items-center pt-2.5 md:pb-2.5">
         <span className="flex items-center">
-          <BaseIcon icon="reg-envelope" className="mr-2 text-base" />
+          <BaseIcon
+            icon="reg-envelope"
+            className="mr-2 hidden text-base sm:block"
+          />
           <a href={`mailto:${contactInfo.email}`} className="hover:underline">
             {contactInfo.email}
           </a>
@@ -23,7 +26,10 @@ const TopBar = () => {
         <span className="divider">&bull;</span>
 
         <span className="flex items-center">
-          <BaseIcon icon="reg-phone" className="mr-2 text-base" />
+          <BaseIcon
+            icon="reg-phone"
+            className="mr-2 hidden text-base sm:block"
+          />
           <a href={`tel:${contactInfo.phone}`} className="hover:underline">
             {contactInfo.phone}
           </a>
