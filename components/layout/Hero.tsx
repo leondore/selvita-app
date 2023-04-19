@@ -5,5 +5,5 @@ type HeroProps = {
 };
 
 const Hero: FC<HeroProps> = ({ children }) => {
-  return <div>{children}</div>;
+  return <header>{children}</header>;
 };

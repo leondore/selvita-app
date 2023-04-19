@@ -36,6 +36,7 @@ export default function RootLayout({
       <body>
         <header>
           <TopBar />
+          <h1>{metadata.title}</h1>
         </header>
 
         <main>{children}</main>
