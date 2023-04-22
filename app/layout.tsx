@@ -6,10 +6,11 @@ config.autoAddCss = false;
 
 import '../styles/main.css';
 import TopBar from '@/components/layout/TopBar';
+import Header from '@/components/layout/Header';
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300', '500'],
+  weight: ['300', '500', '600'],
   variable: '--font-poppins',
   display: 'swap',
 });
@@ -36,7 +37,7 @@ export default function RootLayout({
       <body>
         <header>
           <TopBar />
-          <h1>{metadata.title}</h1>
+          <Header />
         </header>
 
         <main>{children}</main>

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import BaseSvg from '@/components/BaseSvg';
 
 export const metadata = {
   title: 'Hello bro',
@@ -9,7 +8,6 @@ export const metadata = {
 export default function Home() {
   return (
     <main>
-      <BaseSvg image="logo" width={180} />
       <div>
         <p className="font-sans">
           Get started by editing&nbsp;
