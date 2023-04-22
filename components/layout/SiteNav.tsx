@@ -9,19 +9,23 @@ interface SiteNavProps {
   className?: string;
 }
 
-const Nav: FC<SiteNavProps> = ({ className }) => {
+const Nav: FC<SiteNavProps> = ({ className = '' }) => {
   const pathname = usePathname();
+  const setActiveClass = (path: string) =>
+    pathname === path
+      ? 'text-dark after:bg-dark'
+      : 'text-gray-500 after:bg-white';
 
   return (
-    <nav className={className}>
+    <nav className={className} data-component="site-navigation">
       <ul className="flex items-center">
         {nav.map((navItem) => (
           <li key={navItem.name}>
             <Link
               href={navItem.path}
-              className={`block px-8 font-semibold transition-all duration-200 ease-in-out hover:text-dark focus:text-dark ${
-                pathname === navItem.path ? 'text-dark' : 'text-gray-400'
-              }`}
+              className={`relative block px-8 font-semibold transition-all duration-200 ease-in-out after:absolute after:-bottom-2 after:left-1/2 after:-ml-2.5 after:h-0.75 after:w-5 after:rounded after:content-[''] hover:text-dark hover:after:animate-scaleX hover:after:bg-dark focus:text-dark focus:after:bg-dark ${setActiveClass(
+                navItem.path
+              )}`}
             >
               {navItem.label}
             </Link>

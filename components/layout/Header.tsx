@@ -1,9 +1,10 @@
 import BaseSvg from '@/components/BaseSvg';
+import BaseButton from '@/components/BaseButton';
 import SiteNav from '@/components/layout/SiteNav';
 
 const Nav = () => {
   return (
-    <div className="bg-white" data-component="site-nav">
+    <div className="bg-white" data-component="site-header">
       <div className="container mx-auto flex items-center px-4">
         <div className="flex flex-auto items-center justify-between">
           <div className="flex items-center">
@@ -11,6 +12,8 @@ const Nav = () => {
 
             <SiteNav className="flex-auto" />
           </div>
+
+          <BaseButton intent="primary">Mandame un Mensaje!</BaseButton>
         </div>
       </div>
     </div>

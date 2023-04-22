@@ -11,14 +11,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#6BA054',
-        secondary: '#9AB257',
-        tertiary: '#764B29',
+        primary: {
+          DEFAULT: '#6BA054',
+          dark: '#567F43',
+          interact: '#36502A',
+        },
+        secondary: {
+          DEFAULT: '#764B29',
+          interact: '#3C2615',
+        },
+        tertiary: '#9AB257',
         accent: '#FFAA33',
         dark: '#455E44',
-        success: '#4DA858',
-        warning: '#FFBA2D',
-        danger: '#CC2936',
+        success: {
+          DEFAULT: '#4DA858',
+          dark: '#3D8545',
+          interact: '#27542C',
+        },
+        warning: {
+          DEFAULT: '#FFBA2D',
+          interact: '#E09600',
+        },
+        danger: {
+          DEFAULT: '#CC2936',
+          interact: '#881B24',
+        },
         overlay: {
           link: 'rgba(0, 0, 0, 0.25)',
         },
@@ -26,6 +43,18 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
         display: ['var(--font-montserrat)', 'sans-serif'],
+      },
+      spacing: {
+        0.75: '0.1875rem',
+      },
+      keyframes: {
+        scaleX: {
+          '0%': { transform: 'scaleX(0%)' },
+          '100%': { transform: 'scaleX(100%)' },
+        },
+      },
+      animation: {
+        scaleX: 'scaleX 200ms ease-in-out',
       },
     },
   },
