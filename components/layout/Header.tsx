@@ -13,7 +13,9 @@ const Nav = () => {
             <SiteNav className="flex-auto" />
           </div>
 
-          <BaseButton intent="primary">Mandame un Mensaje!</BaseButton>
+          <BaseButton intent="primary" icon="reg-message-smile">
+            Mandame un Mensaje!
+          </BaseButton>
         </div>
       </div>
     </div>

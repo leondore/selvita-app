@@ -1,7 +1,11 @@
 import type { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone } from '@fortawesome/pro-regular-svg-icons';
+import {
+  faEnvelope,
+  faMessageSmile,
+  faPhone,
+} from '@fortawesome/pro-regular-svg-icons';
 import {
   faInstagram,
   faPinterestP,
@@ -9,14 +13,17 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 
+export type Icons = keyof typeof icons;
+
 type BaseIconProps = {
-  icon: keyof typeof icons;
+  icon: Icons;
   className?: string;
 };
 
 const icons = {
   'reg-envelope': faEnvelope,
   'reg-phone': faPhone,
+  'reg-message-smile': faMessageSmile,
   instagram: faInstagram,
   pinterest: faPinterestP,
   facebook: faFacebookF,

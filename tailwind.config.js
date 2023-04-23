@@ -47,6 +47,17 @@ module.exports = {
       spacing: {
         0.75: '0.1875rem',
       },
+      borderWidth: {
+        DEFAULT: '1px',
+        0: '0',
+        2: '2px',
+        3: '3px',
+        4: '4px',
+        5: '5px',
+        6: '6px',
+        7: '7px',
+        8: '8px',
+      },
       keyframes: {
         scaleX: {
           '0%': { transform: 'scaleX(0%)' },
