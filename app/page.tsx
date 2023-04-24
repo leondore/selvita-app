@@ -8,6 +8,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main>
+      <div className="h-96 bg-dark"></div>
       <div>
         <p className="font-sans">
           Get started by editing&nbsp;

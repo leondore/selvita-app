@@ -7,6 +7,9 @@ dependencies:
   '@fortawesome/free-brands-svg-icons':
     specifier: ^6.4.0
     version: 6.4.0
+  '@fortawesome/pro-light-svg-icons':
+    specifier: ^6.4.0
+    version: 6.4.0
   '@fortawesome/pro-regular-svg-icons':
     specifier: ^6.4.0
     version: 6.4.0
@@ -25,9 +28,6 @@ dependencies:
   babel-plugin-macros:
     specifier: ^3.1.0
     version: 3.1.0
-  class-variance-authority:
-    specifier: ^0.5.2
-    version: 0.5.2(typescript@5.0.4)
   eslint:
     specifier: ^8.38.0
     version: 8.38.0
@@ -148,6 +148,14 @@ packages:
 
   /@fortawesome/free-brands-svg-icons@6.4.0:
     resolution: {integrity: sha512-qvxTCo0FQ5k2N+VCXb/PZQ+QMhqRVM4OORiO6MXdG6bKolIojGU/srQ1ptvKk0JTbRgaJOfL2qMqGvBEZG7Z6g==, tarball: https://npm.fontawesome.com/@fortawesome/free-brands-svg-icons/-/6.4.0/free-brands-svg-icons-6.4.0.tgz}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.4.0
+    dev: false
+
+  /@fortawesome/pro-light-svg-icons@6.4.0:
+    resolution: {integrity: sha512-LAK1nUBWhXz8wrNBP+GwpZPqDSHfj7Xp9hhKqhF0Gd2lYtjgl67IvQSf1Vv1o75LK+odq6rkt6RfzBv0quwH/g==, tarball: https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/6.4.0/pro-light-svg-icons-6.4.0.tgz}
     engines: {node: '>=6'}
     requiresBuild: true
     dependencies:
@@ -689,17 +697,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
-
-  /class-variance-authority@0.5.2(typescript@5.0.4):
-    resolution: {integrity: sha512-j7Qqw3NPbs4IpO80gvdACWmVvHiLLo5MECacUBLnJG17CrLpWaQ7/4OaWX6P0IO1j2nvZ7AuSfBS/ImtEUZJGA==}
-    peerDependencies:
-      typescript: '>= 4.5.5 < 6'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      typescript: 5.0.4
-    dev: false
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}

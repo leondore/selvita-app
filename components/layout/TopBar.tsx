@@ -19,7 +19,7 @@ const TopBar = () => {
         <div className="flex items-center pt-2.5 md:pb-2.5">
           <span className="flex items-center">
             <BaseIcon
-              icon="reg-envelope"
+              icon="lgt-envelope"
               className="mr-2 hidden text-base sm:block"
             />
             <a href={`mailto:${contactInfo.email}`} className="hover:underline">
@@ -31,7 +31,7 @@ const TopBar = () => {
 
           <span className="flex items-center">
             <BaseIcon
-              icon="reg-phone"
+              icon="lgt-phone"
               className="mr-2 hidden text-base sm:block"
             />
             <a href={`tel:${contactInfo.phone}`} className="hover:underline">

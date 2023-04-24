@@ -1,11 +1,8 @@
 import type { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEnvelope,
-  faMessageSmile,
-  faPhone,
-} from '@fortawesome/pro-regular-svg-icons';
+import { faEnvelope, faPhone } from '@fortawesome/pro-light-svg-icons';
+import { faMessageSmile, faSpa } from '@fortawesome/pro-regular-svg-icons';
 import {
   faInstagram,
   faPinterestP,
@@ -18,20 +15,27 @@ export type Icons = keyof typeof icons;
 type BaseIconProps = {
   icon: Icons;
   className?: string;
+  children?: React.ReactNode;
 };
 
 const icons = {
-  'reg-envelope': faEnvelope,
-  'reg-phone': faPhone,
+  'lgt-envelope': faEnvelope,
+  'lgt-phone': faPhone,
   'reg-message-smile': faMessageSmile,
+  'reg-spa': faSpa,
   instagram: faInstagram,
   pinterest: faPinterestP,
   facebook: faFacebookF,
   twitter: faTwitter,
 };
 
-const BaseIcon: FC<BaseIconProps> = ({ icon, className = '' }) => {
-  return <FontAwesomeIcon icon={icons[icon]} className={className} />;
+const BaseIcon: FC<BaseIconProps> = ({ icon, className = '', children }) => {
+  return (
+    <span className="leading-none">
+      <FontAwesomeIcon icon={icons[icon]} className={className} />
+      {children && <span className="sr-only">{children}</span>}
+    </span>
+  );
 };
 
 export default BaseIcon;

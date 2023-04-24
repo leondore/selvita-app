@@ -4,7 +4,7 @@ import SiteNav from '@/components/layout/SiteNav';
 
 const Nav = () => {
   return (
-    <div className="bg-white" data-component="site-header">
+    <div className="bg-white py-4" data-component="site-header">
       <div className="container mx-auto flex items-center px-4">
         <div className="flex flex-auto items-center justify-between">
           <div className="flex items-center">
@@ -13,7 +13,7 @@ const Nav = () => {
             <SiteNav className="flex-auto" />
           </div>
 
-          <BaseButton intent="primary" icon="reg-message-smile">
+          <BaseButton size="lg" icon="reg-message-smile">
             Mandame un Mensaje!
           </BaseButton>
         </div>

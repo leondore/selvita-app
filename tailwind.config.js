@@ -13,8 +13,7 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: '#6BA054',
-          dark: '#567F43',
-          interact: '#36502A',
+          interact: '#476B38',
         },
         secondary: {
           DEFAULT: '#764B29',
@@ -22,11 +21,10 @@ module.exports = {
         },
         tertiary: '#9AB257',
         accent: '#FFAA33',
-        dark: '#455E44',
+        dark: '#406A3C',
         success: {
           DEFAULT: '#4DA858',
-          dark: '#3D8545',
-          interact: '#27542C',
+          interact: '#33703A',
         },
         warning: {
           DEFAULT: '#FFBA2D',
@@ -46,6 +44,7 @@ module.exports = {
       },
       spacing: {
         0.75: '0.1875rem',
+        17: '4.25rem',
       },
       borderWidth: {
         DEFAULT: '1px',
