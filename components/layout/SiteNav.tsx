@@ -2,7 +2,7 @@
 
 import './SiteNav.css';
 
-import type { FC } from 'react';
+import { FC, useState } from 'react';
 import Link from 'next/link';
 import BaseIcon from '@/components/BaseIcon';
 import { usePathname } from 'next/navigation';
@@ -14,10 +14,11 @@ interface SiteNavProps {
 
 const Nav: FC<SiteNavProps> = ({ className = '' }) => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className={className} data-component="site-navigation">
-      <ul className="flex items-center">
+      <ul className="hidden items-center md:flex">
         {nav.map((navItem) => (
           <li key={navItem.name}>
             <Link
@@ -30,6 +31,16 @@ const Nav: FC<SiteNavProps> = ({ className = '' }) => {
           </li>
         ))}
       </ul>
+
+      <button
+        className={`hamburger md:hidden ${isMenuOpen && 'is-active'}`}
+        type="button"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <span className="hamburger-box">
+          <span className="hamburger-inner"></span>
+        </span>
+      </button>
     </nav>
   );
 };

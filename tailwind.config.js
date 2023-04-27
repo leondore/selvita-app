@@ -57,6 +57,14 @@ module.exports = {
         7: '7px',
         8: '8px',
       },
+      transitionProperty: {
+        top: 'top',
+        bottom: 'bottom',
+      },
+      transitionTimingFunction: {
+        spin: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+        spinInner: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+      },
       keyframes: {
         scaleX: {
           '0%': { transform: 'scaleX(0%)' },

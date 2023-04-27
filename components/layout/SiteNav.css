@@ -2,7 +2,7 @@
 
 @layer components {
   .nav-item {
-    @apply relative block px-8 py-4 font-semibold transition-all duration-200 ease-in-out hover:text-dark hover:after:bg-dark focus:text-dark focus:after:bg-dark;
+    @apply relative block px-4 py-4 font-semibold transition-all duration-200 ease-in-out hover:text-dark hover:after:bg-dark focus:text-dark focus:after:bg-dark lg:px-8;
 
     .icon {
       @apply absolute -bottom-2 left-1/2 -translate-x-1/2 text-sm opacity-0 transition-opacity duration-200 ease-in-out;
@@ -21,6 +21,65 @@
       .icon {
         @apply opacity-100;
       }
+    }
+  }
+
+  .hamburger {
+    @apply m-0 inline-block cursor-pointer overflow-visible border-0 bg-transparent p-4 align-middle leading-none transition duration-150 ease-linear hover:opacity-70;
+
+    &.is-active {
+      @apply hover:opacity-70;
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        @apply bg-secondary;
+      }
+
+      .hamburger-inner {
+        @apply rotate-[225deg] delay-[0.12s] ease-spinInner;
+
+        &::before {
+          @apply top-0 opacity-0;
+          transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+        }
+
+        &::after {
+          @apply bottom-0 -rotate-90;
+          transition: bottom 0.1s ease-out,
+            transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+      }
+    }
+  }
+
+  .hamburger-box {
+    @apply relative inline-block h-[18px] w-6;
+  }
+
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    @apply absolute h-0.5 w-6 bg-secondary transition-transform duration-150 ease-in-out;
+  }
+
+  .hamburger-inner {
+    @apply top-1/2 -mt-px block duration-[0.22s] ease-spin;
+
+    &::before,
+    &::after {
+      @apply block content-[''];
+    }
+
+    &::before {
+      @apply -top-2;
+      transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+    }
+
+    &::after {
+      @apply -bottom-2;
+      transition: bottom 0.1s 0.25s ease-in,
+        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
   }
 }
