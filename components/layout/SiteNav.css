@@ -25,7 +25,7 @@
   }
 
   .hamburger {
-    @apply m-0 inline-block cursor-pointer overflow-visible border-0 bg-transparent p-4 align-middle leading-none transition duration-150 ease-linear hover:opacity-70;
+    @apply m-0 cursor-pointer overflow-visible border-0 bg-transparent p-4 align-middle leading-none transition duration-150 ease-linear hover:opacity-70;
 
     &.is-active {
       @apply hover:opacity-70;

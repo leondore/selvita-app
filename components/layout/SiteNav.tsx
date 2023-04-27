@@ -33,7 +33,9 @@ const Nav: FC<SiteNavProps> = ({ className = '' }) => {
       </ul>
 
       <button
-        className={`hamburger md:hidden ${isMenuOpen && 'is-active'}`}
+        className={`hamburger inline-block md:hidden ${
+          isMenuOpen && 'is-active'
+        }`}
         type="button"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
