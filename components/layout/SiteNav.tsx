@@ -1,8 +1,8 @@
 'use client';
 
-import './SiteNav.css';
+import '@/components/layout/SiteNav.css';
 
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import BaseIcon from '@/components/BaseIcon';
 import { usePathname } from 'next/navigation';
@@ -14,11 +14,13 @@ interface SiteNavProps {
 
 const Nav: FC<SiteNavProps> = ({ className = '' }) => {
   const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className={className} data-component="site-navigation">
-      <ul className="hidden items-center md:flex">
+    <nav
+      className={`fixed right-0 top-0 z-10 h-screen w-80 bg-white shadow-2xl sm:relative sm:right-auto sm:h-auto sm:w-auto sm:flex-auto ${className}`}
+      data-component="site-navigation"
+    >
+      <ul className="flex items-center">
         {nav.map((navItem) => (
           <li key={navItem.name}>
             <Link
@@ -31,18 +33,6 @@ const Nav: FC<SiteNavProps> = ({ className = '' }) => {
           </li>
         ))}
       </ul>
-
-      <button
-        className={`hamburger inline-block md:hidden ${
-          isMenuOpen && 'is-active'
-        }`}
-        type="button"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <span className="hamburger-box">
-          <span className="hamburger-inner"></span>
-        </span>
-      </button>
     </nav>
   );
 };
