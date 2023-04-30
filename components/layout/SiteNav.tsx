@@ -16,16 +16,13 @@ const Nav: FC<SiteNavProps> = ({ className = '' }) => {
   const pathname = usePathname();
 
   return (
-    <nav
-      className={`fixed right-0 top-0 z-10 h-screen w-80 bg-white shadow-2xl sm:relative sm:right-auto sm:h-auto sm:w-auto sm:flex-auto ${className}`}
-      data-component="site-navigation"
-    >
-      <ul className="flex items-center">
+    <nav className={`flex-auto ${className}`} data-component="site-navigation">
+      <ul className="sm:flex sm:items-center">
         {nav.map((navItem) => (
           <li key={navItem.name}>
             <Link
               href={navItem.path}
-              className={`nav-item ${pathname === navItem.path && 'active'}`}
+              className={`nav-item ${pathname === navItem.path && 'is-active'}`}
             >
               {navItem.label}
               <BaseIcon icon="reg-spa" className="icon" />

@@ -2,7 +2,11 @@ import type { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone } from '@fortawesome/pro-light-svg-icons';
-import { faMessageSmile, faSpa } from '@fortawesome/pro-regular-svg-icons';
+import {
+  faMessageSmile,
+  faSpa,
+  faXmark,
+} from '@fortawesome/pro-regular-svg-icons';
 import {
   faInstagram,
   faPinterestP,
@@ -23,6 +27,7 @@ const icons = {
   'lgt-phone': faPhone,
   'reg-message-smile': faMessageSmile,
   'reg-spa': faSpa,
+  'reg-xmark': faXmark,
   instagram: faInstagram,
   pinterest: faPinterestP,
   facebook: faFacebookF,

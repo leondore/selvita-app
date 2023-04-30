@@ -1,12 +1,16 @@
 'use client';
 
+import '@/components/layout/Header.css';
+
 import { useState } from 'react';
 import BaseSvg from '@/components/BaseSvg';
 import BaseButton from '@/components/BaseButton';
 import SiteNav from '@/components/layout/SiteNav';
+import MobileNav from '@/components/layout/MobileNav';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuClasses = isMenuOpen ? 'is-active' : '';
 
   return (
     <div className="bg-white py-4" data-component="site-header">
@@ -16,27 +20,27 @@ const Header = () => {
             <BaseSvg
               image="logo"
               width={200}
-              className="w-44 sm:w-52 md:mr-6 lg:mr-12"
+              className="mr-2 w-44 md:mr-6 md:w-52 lg:mr-12"
             />
 
-            <SiteNav className="sm:flex-auto" />
+            <SiteNav className="hidden sm:block" />
           </div>
 
           <BaseButton
             size="lg"
             icon="reg-message-smile"
-            className="hidden md:inline-block"
+            className="hidden sm:inline-block"
           >
             <span className="lg:hidden">Escribeme!</span>
             <span className="hidden lg:inline">Mandame un Mensaje!</span>
           </BaseButton>
 
           <button
-            className={`hamburger inline-block md:hidden ${
+            className={`hamburger inline-block sm:hidden ${
               isMenuOpen && 'is-active'
             }`}
             type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(true)}
           >
             <span className="hamburger-box">
               <span className="hamburger-inner"></span>
@@ -44,6 +48,11 @@ const Header = () => {
           </button>
         </div>
       </div>
+
+      <MobileNav
+        className={`sm:hidden ${isMenuOpen && 'is-active'}`}
+        toggleMenu={setIsMenuOpen}
+      />
     </div>
   );
 };

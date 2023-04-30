@@ -70,9 +70,14 @@ module.exports = {
           '0%': { transform: 'scaleX(0%)' },
           '100%': { transform: 'scaleX(100%)' },
         },
+        enterRight: {
+          '0%': { transform: 'translateX(0px)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
       },
       animation: {
         scaleX: 'scaleX 200ms ease-in-out',
+        enterRight: 'enterRight 400ms ease-in-out',
       },
     },
   },
