@@ -10,7 +10,6 @@ import MobileNav from '@/components/layout/MobileNav';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuClasses = isMenuOpen ? 'is-active' : '';
 
   return (
     <div className="bg-white py-4" data-component="site-header">
