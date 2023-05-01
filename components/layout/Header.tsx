@@ -12,7 +12,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white py-4" data-component="site-header">
+    <div className="bg-white py-5" data-component="site-header">
       <div className="container mx-auto flex items-center px-4">
         <div className="flex flex-auto items-center justify-between">
           <div className="flex items-center">

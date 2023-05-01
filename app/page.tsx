@@ -1,4 +1,12 @@
+import { Great_Vibes } from 'next/font/google';
 import Image from 'next/image';
+import Hero from '@/components/layout/Hero';
+
+const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Hello bro',
@@ -8,7 +16,21 @@ export const metadata = {
 export default function Home() {
   return (
     <main>
-      <div className="h-96 bg-dark"></div>
+      <Hero>
+        <h1
+          className={`mb-4 text-4xl leading-none text-white md:text-6xl lg:text-7xl ${greatVibes.className}`}
+        >
+          La selvita de concreto
+        </h1>
+        <p className="text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          enim orci, mollis ac nulla eget, vulputate dignissim libero. In a
+          velit dui. Vestibulum sodales luctus volutpat. Etiam lobortis, urna id
+          tristique ultricies, sapien risus consequat tortor, sit amet efficitur
+          nisl nisi ac odio.
+        </p>
+      </Hero>
+
       <div>
         <p className="font-sans">
           Get started by editing&nbsp;

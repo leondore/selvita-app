@@ -8,14 +8,14 @@ import './main.css';
 import TopBar from '@/components/layout/TopBar';
 import Header from '@/components/layout/Header';
 
-const poppins = Poppins({
+const poppinsFont = Poppins({
   subsets: ['latin'],
   weight: ['300', '500', '600'],
   variable: '--font-poppins',
   display: 'swap',
 });
 
-const montserrat = Montserrat({
+const montserratFont = Montserrat({
   subsets: ['latin'],
   weight: ['200', '400'],
   variable: '--font-montserrat',
@@ -33,7 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${montserrat.variable}`}>
+    <html
+      lang="en"
+      className={`${poppinsFont.variable} ${montserratFont.variable}`}
+    >
       <body>
         <header>
           <TopBar />

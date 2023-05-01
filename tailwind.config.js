@@ -21,7 +21,7 @@ module.exports = {
         },
         tertiary: '#9AB257',
         accent: '#FFAA33',
-        dark: '#406A3C',
+        dark: '#357436',
         success: {
           DEFAULT: '#4DA858',
           interact: '#33703A',
