@@ -1,7 +1,15 @@
 import type { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone } from '@fortawesome/pro-light-svg-icons';
+import {
+  faEnvelope,
+  faHashtag,
+  faKey,
+  faLink,
+  faMagnifyingGlass,
+  faPhone,
+  faTextSize,
+} from '@fortawesome/pro-light-svg-icons';
 import {
   faMessageSmile,
   faSpa,
@@ -24,7 +32,12 @@ type BaseIconProps = {
 
 const icons = {
   'lgt-envelope': faEnvelope,
+  'lgt-hashtag': faHashtag,
+  'lgt-key': faKey,
+  'lgt-link': faLink,
+  'lgt-magnifying-glass': faMagnifyingGlass,
   'lgt-phone': faPhone,
+  'lgt-text-size': faTextSize,
   'reg-message-smile': faMessageSmile,
   'reg-spa': faSpa,
   'reg-xmark': faXmark,

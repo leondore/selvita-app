@@ -8,7 +8,7 @@ export const contactInfo = {
 };
 
 export const nav = [
-  { name: 'blog', label: 'Blog', path: '/' },
+  { name: 'diario', label: 'Diario', path: '/' },
   { name: 'recentas', label: 'Recetas', path: '/recetas' },
   { name: 'contacto', label: 'Contacto', path: '/contacto' },
 ];
