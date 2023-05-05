@@ -1,18 +1,17 @@
 import type { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone } from '@fortawesome/pro-light-svg-icons';
 import {
-  faEnvelope,
+  faEnvelopeOpenText,
   faHashtag,
   faKey,
   faLink,
   faMagnifyingGlass,
-  faPhone,
-  faTextSize,
-} from '@fortawesome/pro-light-svg-icons';
-import {
   faMessageSmile,
+  faPhone as faPhoneReg,
   faSpa,
+  faTextSize,
   faXmark,
 } from '@fortawesome/pro-regular-svg-icons';
 import {
@@ -32,14 +31,16 @@ type BaseIconProps = {
 
 const icons = {
   'lgt-envelope': faEnvelope,
-  'lgt-hashtag': faHashtag,
-  'lgt-key': faKey,
-  'lgt-link': faLink,
-  'lgt-magnifying-glass': faMagnifyingGlass,
   'lgt-phone': faPhone,
-  'lgt-text-size': faTextSize,
+  'reg-envelope-open-text': faEnvelopeOpenText,
+  'reg-hashtag': faHashtag,
+  'reg-key': faKey,
+  'reg-link': faLink,
+  'reg-magnifying-glass': faMagnifyingGlass,
   'reg-message-smile': faMessageSmile,
+  'reg-phone': faPhoneReg,
   'reg-spa': faSpa,
+  'reg-text-size': faTextSize,
   'reg-xmark': faXmark,
   instagram: faInstagram,
   pinterest: faPinterestP,

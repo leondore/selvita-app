@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import Image from 'next/image';
 import HeroImg from '@/public/hero.webp';
 
 type HeroProps = {

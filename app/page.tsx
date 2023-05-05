@@ -1,11 +1,11 @@
 import { Great_Vibes } from 'next/font/google';
 import Hero from '@/components/layout/Hero';
 import BaseInput from '@/components/BaseInput';
+import Frame from '@/components/layout/Frame';
 
-const greatVibesFont = Great_Vibes({
+const greatVibes = Great_Vibes({
   subsets: ['latin'],
   weight: ['400'],
-  display: 'swap',
 });
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function Home() {
     <main>
       <Hero>
         <h1
-          className={`mb-4 text-4xl leading-none text-white md:text-6xl lg:text-7xl ${greatVibesFont.className}`}
+          className={`mb-4 text-4xl leading-none text-white md:text-6xl lg:text-7xl ${greatVibes.className}`}
         >
           La selvita de concreto
         </h1>
@@ -31,8 +31,16 @@ export default function Home() {
         </p>
       </Hero>
 
-      <div className="mx-auto max-w-7xl pt-7">
-        <BaseInput type="text" hasIcon />
+      <div className="mx-auto max-w-7xl px-6 pt-24">
+        <Frame>
+          <BaseInput
+            type="search"
+            hasIcon
+            hideLabel
+            label="Buscar entradas"
+            placeholder="Buscar..."
+          />
+        </Frame>
       </div>
     </main>
   );

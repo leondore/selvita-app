@@ -12,14 +12,12 @@ const poppinsFont = Poppins({
   subsets: ['latin'],
   weight: ['300', '500', '600'],
   variable: '--font-poppins',
-  display: 'swap',
 });
 
 const montserratFont = Montserrat({
   subsets: ['latin'],
   weight: ['200', '400'],
   variable: '--font-montserrat',
-  display: 'swap',
 });
 
 export const metadata = {

@@ -6,10 +6,23 @@
   body {
     @apply font-sans text-base font-light text-gray-800;
   }
+
+  a,
+  button,
+  input,
+  textarea {
+    @apply focus:outline-dotted focus:outline-2 focus:outline-offset-2 focus:outline-neutral-500;
+  }
 }
 
 @layer components {
   .divider {
     @apply mx-2 text-base leading-none opacity-50 md:mx-4;
+  }
+}
+
+@layer utilities {
+  .focusable {
+    @apply focus:outline-dotted focus:outline-2 focus:outline-offset-2 focus:outline-neutral-500;
   }
 }
