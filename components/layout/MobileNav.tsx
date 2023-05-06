@@ -3,58 +3,34 @@
 import '@/components/layout/MobileNav.css';
 
 import { FC } from 'react';
-import Link from 'next/link';
-import BaseSvg from '@/components/BaseSvg';
-import BaseIcon from '@/components/BaseIcon';
-import BaseButton from '@/components/BaseButton';
-import { usePathname } from 'next/navigation';
-import { nav } from '@/utils/constants';
+import { useState } from 'react';
+import MobilePanel from '@/components/layout/MobilePanel';
 
 interface MobileNavProps {
   className?: string;
-  toggleMenu: (value: boolean) => void;
 }
 
-const Nav: FC<MobileNavProps> = ({ toggleMenu, className = '' }) => {
-  const pathname = usePathname();
+const MobileNav: FC<MobileNavProps> = ({ className = '' }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav
-      className={`nav--mobile fixed right-0 top-0 z-10 flex h-screen w-full max-w-[18rem] translate-x-full flex-col justify-between bg-white py-4 shadow-2xl transition-transform duration-500 ease-in-out ${className}`}
-      data-component="mobile-navigation"
-    >
-      <div className="relative">
-        <BaseSvg image="logo" width={180} className="mx-6 mb-6" />
+    <div className={className}>
+      <button
+        className={`hamburger inline-block ${isMenuOpen ? 'is-active' : ''}`}
+        type="button"
+        onClick={() => setIsMenuOpen(true)}
+      >
+        <span className="hamburger-box">
+          <span className="hamburger-inner"></span>
+        </span>
+      </button>
 
-        <button
-          className="absolute right-0 top-0 p-4"
-          onClick={() => toggleMenu(false)}
-        >
-          <BaseIcon icon="reg-xmark" className="text-2xl text-gray-600" />
-        </button>
-
-        <ul>
-          {nav.map((navItem) => (
-            <li key={navItem.name}>
-              <Link
-                href={navItem.path}
-                className={`nav-item ${
-                  pathname === navItem.path && 'is-active'
-                }`}
-              >
-                {navItem.label}
-                <BaseIcon icon="reg-spa" className="icon" />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <BaseButton size="base" icon="reg-message-smile" className="mx-4">
-        Escribeme!
-      </BaseButton>
-    </nav>
+      <MobilePanel
+        className={isMenuOpen ? 'is-active' : ''}
+        toggleMenu={setIsMenuOpen}
+      />
+    </div>
   );
 };
 
-export default Nav;
+export default MobileNav;

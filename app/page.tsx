@@ -1,7 +1,6 @@
 import { Great_Vibes } from 'next/font/google';
 import Hero from '@/components/layout/Hero';
-import BaseInput from '@/components/BaseInput';
-import Frame from '@/components/layout/Frame';
+import BlogFilter from '@/components/BlogFilter';
 
 const greatVibes = Great_Vibes({
   subsets: ['latin'],
@@ -32,15 +31,7 @@ export default function Home() {
       </Hero>
 
       <div className="mx-auto max-w-7xl px-6 pt-24">
-        <Frame>
-          <BaseInput
-            type="search"
-            hasIcon
-            hideLabel
-            label="Buscar entradas"
-            placeholder="Buscar..."
-          />
-        </Frame>
+        <BlogFilter />
       </div>
     </main>
   );

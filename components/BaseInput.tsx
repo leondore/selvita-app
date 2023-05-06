@@ -83,11 +83,11 @@ const BaseInput: FC<BaseInputProps> = ({
     (type === 'text' || type === 'number') && icon ? icon : iconClass[type];
 
   return (
-    <div className="inline-block" data-component="input">
+    <div className={`inline-block ${className}`} data-component="input">
       <label
         htmlFor={keyify(label)}
         className={`mb-1 inline-block px-1 text-xs font-medium ${
-          hideLabel && 'sr-only'
+          hideLabel ? 'sr-only' : ''
         }`}
       >
         {label}
@@ -105,7 +105,7 @@ const BaseInput: FC<BaseInputProps> = ({
         <input
           id={keyify(label)}
           type={type}
-          className={`rounded border border-gray-300 bg-white leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]} ${className}`}
+          className={`rounded border border-gray-300 bg-white leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]}`}
           {...props}
         />
       </div>

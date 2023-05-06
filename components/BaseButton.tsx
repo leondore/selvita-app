@@ -78,7 +78,7 @@ const BaseButton: FC<BaseButtonProps> = ({
   return (
     <button
       className={`relative overflow-hidden text-ellipsis whitespace-nowrap font-medium transition-all duration-200 ease-in-out  ${
-        !!icon && 'border-l-overlay-link'
+        !icon ? 'border-l-overlay-link' : ''
       } ${intentClass[intent]} ${sizeClass[size]} ${className}`}
       {...props}
     >
