@@ -1,6 +1,6 @@
 import { Great_Vibes } from 'next/font/google';
 import Hero from '@/components/layout/Hero';
-import BlogFilter from '@/components/BlogFilter';
+import BlogFilter from '@/app/BlogFilter';
 
 const greatVibes = Great_Vibes({
   subsets: ['latin'],
