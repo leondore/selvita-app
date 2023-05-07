@@ -1,5 +1,6 @@
 import type { InputHTMLAttributes, HTMLInputTypeAttribute, FC } from 'react';
-import type { UnionSubType, FieldSize, FieldSizeClassList } from '@/types/base';
+import type { UnionSubType } from '@/types/base';
+import type { FormElemSizeClassList, FormElemProps } from '@/types/forms';
 import BaseIcon, { type Icons } from '@/components/BaseIcon';
 import { keyify } from '@/utils/helpers';
 
@@ -12,18 +13,14 @@ type IconList = {
 };
 
 interface ClassList {
-  size: FieldSizeClassList;
-  iconSize: FieldSizeClassList;
+  size: FormElemSizeClassList;
+  iconSize: FormElemSizeClassList;
   icon: IconList;
 }
 
-interface BaseProps extends InputHTMLAttributes<HTMLInputElement> {
-  error?: boolean;
-  fieldSize?: FieldSize;
-  hasIcon?: boolean;
-  label: string;
-  hideLabel?: boolean;
-}
+interface BaseProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    FormElemProps {}
 
 interface NoIconsProps extends BaseProps {
   type: UnionSubType<HTMLInputTypeAttribute, SetTypeOptions>;
@@ -42,7 +39,7 @@ const BaseInput: FC<BaseInputProps> = ({
   error,
   icon,
   label,
-  fieldSize = 'base',
+  fieldSize = 'md',
   hasIcon = false,
   hideLabel = false,
   className = '',
@@ -50,17 +47,15 @@ const BaseInput: FC<BaseInputProps> = ({
 }) => {
   const inputClassList: ClassList = {
     size: {
-      base: !!hasIcon
-        ? 'text-sm pr-8 pl-14 py-3 h-11'
-        : 'text-sm px-8 py-3 h-11',
-      md: !!hasIcon ? 'text-sm pr-5 pl-13 py-2 h-9' : 'text-sm px-5 py-2 h-9',
-      sm: !!hasIcon ? 'text-xs pr-3 pl-12 py-2 h-8' : 'text-xs px-3 py-2 h-8',
+      sm: !!hasIcon ? 'text-sm pr-5 pl-13 py-2 h-9' : 'text-sm px-5 py-2 h-9',
+      xs: !!hasIcon ? 'text-xs pr-3 pl-12 py-2 h-8' : 'text-xs px-3 py-2 h-8',
+      md: !!hasIcon ? 'text-sm pr-8 pl-14 py-3 h-11' : 'text-sm px-8 py-3 h-11',
       lg: !!hasIcon ? 'text-sm pr-9 pl-16 py-4 h-13' : 'text-sm px-9 py-4 h-13',
     },
     iconSize: {
-      base: 'text-sm w-10',
-      md: 'text-sm w-9',
-      sm: 'text-xs w-8',
+      sm: 'text-sm w-9',
+      xs: 'text-xs w-8',
+      md: 'text-sm w-10',
       lg: 'text-base w-12',
     },
     icon: {
@@ -83,7 +78,10 @@ const BaseInput: FC<BaseInputProps> = ({
     (type === 'text' || type === 'number') && icon ? icon : iconClass[type];
 
   return (
-    <div className={`inline-block ${className}`} data-component="input">
+    <div
+      className={`inline-block min-w-[12rem] ${className}`}
+      data-component="input"
+    >
       <label
         htmlFor={keyify(label)}
         className={`mb-1 inline-block px-1 text-xs font-medium ${
@@ -105,7 +103,7 @@ const BaseInput: FC<BaseInputProps> = ({
         <input
           id={keyify(label)}
           type={type}
-          className={`rounded border border-gray-300 bg-white leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]}`}
+          className={`w-full rounded border border-gray-300 bg-white leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]}`}
           {...props}
         />
       </div>

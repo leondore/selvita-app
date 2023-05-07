@@ -37,7 +37,7 @@ const MobilePanel: FC<MobilePanelProps> = ({ toggleMenu, className = '' }) => {
         </ul>
       </div>
 
-      <HeaderCta size="base" className="mx-4">
+      <HeaderCta size="md" className="mx-4">
         Escribeme!
       </HeaderCta>
     </nav>

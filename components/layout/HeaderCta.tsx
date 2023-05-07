@@ -1,18 +1,18 @@
 'use client';
 
 import type { FC } from 'react';
-import type { FieldSize } from '@/types/base';
+import type { FormElemSize } from '@/types/base';
 import { useRouter } from 'next/navigation';
 import BaseButton from '@/components/BaseButton';
 
 interface HeaderCtaProps {
   className?: string;
-  size?: FieldSize;
+  size?: FormElemSize;
   children: React.ReactNode;
 }
 
 const HeaderCta: FC<HeaderCtaProps> = ({
-  size = 'base',
+  size = 'md',
   className = '',
   children,
 }) => {
