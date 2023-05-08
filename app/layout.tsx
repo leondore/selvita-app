@@ -10,7 +10,7 @@ import Header from '@/components/layout/Header';
 
 const poppinsFont = Poppins({
   subsets: ['latin'],
-  weight: ['300', '500', '600'],
+  weight: ['300', '400', '500', '600'],
   variable: '--font-poppins',
 });
 

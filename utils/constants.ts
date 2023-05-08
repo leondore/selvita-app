@@ -1,4 +1,4 @@
-export const contactInfo = {
+const contactInfo = {
   email: 'info@laselvitadeconcreto.com',
   phone: '(829) 655-1178',
   instagram: 'https://www.instagram.com/stefanyc.mariano/',
@@ -7,8 +7,10 @@ export const contactInfo = {
   pinterest: 'https://www.pinterest.com/',
 };
 
-export const nav = [
+const nav = [
   { name: 'diario', label: 'Diario', path: '/' },
   { name: 'recentas', label: 'Recetas', path: '/recetas' },
   { name: 'contacto', label: 'Contacto', path: '/contacto' },
 ];
+
+export { contactInfo, nav };

@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .sdc-select button[data-headlessui-state='open'] .chevron {
+    @apply -rotate-180;
+  }
+}

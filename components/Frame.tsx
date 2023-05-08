@@ -18,7 +18,7 @@ const Frame: FC<FrameProps> = ({ children, className = '', gap = 'md' }) => {
 
   return (
     <div
-      className={`grid grid-cols-12 px-7 py-10 ${className}`}
+      className={`grid grid-cols-12 px-7 py-10 ${gapClassList[gap]} ${className}`}
       data-component="frame"
     >
       {children}
