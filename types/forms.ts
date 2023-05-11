@@ -2,7 +2,7 @@ import type { UnionSubType, SizeOptions } from '@/types/base';
 
 export type FormElemSize = UnionSubType<SizeOptions, 'xs' | 'sm' | 'md' | 'lg'>;
 
-type FormElemSizeClassList = {
+export type FormElemSizeClassList = {
   [key in FormElemSize]: string;
 };
 

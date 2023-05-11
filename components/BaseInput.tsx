@@ -82,7 +82,7 @@ const BaseInput: FC<BaseInputProps> = ({
       <div className="relative">
         {hasIcon && (
           <span
-            className={`absolute bottom-1 left-1 top-1 z-10 flex items-center justify-center rounded-l bg-secondary text-sm text-white ${iconSizeClass[fieldSize]}`}
+            className={`absolute bottom-1 left-1 top-1 z-10 flex items-center justify-center rounded bg-secondary text-sm text-white ${iconSizeClass[fieldSize]}`}
           >
             <BaseIcon icon={iconName} />
           </span>

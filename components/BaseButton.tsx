@@ -84,9 +84,9 @@ const BaseButton: FC<BaseButtonProps> = ({
       } ${intentClass[intent]} ${sizeClass[size]} ${className}`}
       {...props}
     >
-      {icon && (
+      {!!icon && (
         <span
-          className={`absolute bottom-0 left-0 top-0 flex items-center justify-center ${iconSizeClass[size]} ${iconColorClass[intent]}`}
+          className={`absolute bottom-1 left-1 top-1 flex items-center justify-center rounded ${iconSizeClass[size]} ${iconColorClass[intent]}`}
         >
           <BaseIcon icon={icon} />
         </span>

@@ -10,9 +10,21 @@ interface BaseSelectProps extends FormElemProps {
   icon?: Icons;
   className?: string;
   options: SelectOption[];
+}
+
+interface SingleProps extends BaseSelectProps {
+  multiple?: false;
   value: SelectOption;
   handler: (value: SelectOption) => void;
 }
+
+interface MultiProps extends BaseSelectProps {
+  multiple?: true;
+  value: SelectOption[];
+  handler: (value: SelectOption[]) => void;
+}
+
+type SelectProps = SingleProps | MultiProps;
 
 function setOptionsPosition(
   event: SyntheticEvent<HTMLButtonElement, MouseEvent>
@@ -27,13 +39,14 @@ function setOptionsPosition(
   return 'mt-1.5';
 }
 
-const BaseSelect: FC<BaseSelectProps> = ({
+const BaseSelect: FC<SelectProps> = ({
   error,
   icon,
   label,
   options,
   value,
   handler,
+  multiple = false,
   fieldSize = 'md',
   hideLabel = false,
   className = '',
@@ -48,7 +61,7 @@ const BaseSelect: FC<BaseSelectProps> = ({
       className={`sdc-select relative inline-block min-w-[12rem] ${className}`}
       data-component="select"
     >
-      <Listbox value={value} onChange={handler}>
+      <Listbox value={value} onChange={handler} multiple={multiple}>
         <Listbox.Label
           className={`mb-1 inline-block px-1 text-xs font-medium ${
             hideLabel ? 'sr-only' : ''
@@ -60,7 +73,7 @@ const BaseSelect: FC<BaseSelectProps> = ({
         <div className="relative">
           {!!icon && (
             <span
-              className={`absolute bottom-1 left-1 top-1 z-10 flex items-center justify-center rounded-l bg-secondary text-sm text-white ${iconSizeClass[fieldSize]}`}
+              className={`absolute bottom-1 left-1 top-1 z-10 flex items-center justify-center rounded bg-secondary text-sm text-white ${iconSizeClass[fieldSize]}`}
             >
               <BaseIcon icon={icon} />
             </span>
@@ -70,7 +83,11 @@ const BaseSelect: FC<BaseSelectProps> = ({
             className={`relative w-full cursor-default rounded border border-gray-300 bg-white text-left leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]}`}
             onClick={(e) => setPosClass(setOptionsPosition(e))}
           >
-            <span className="block truncate">{value.label}</span>
+            <span className="block truncate">
+              {Array.isArray(value)
+                ? value.map((val) => val.label).join(', ')
+                : value.label}
+            </span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex w-9 items-center justify-center">
               <BaseIcon
                 icon="reg-chevron-down"
