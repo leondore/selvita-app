@@ -55,7 +55,20 @@ const BaseSelect: FC<SelectProps> = ({
 }) => {
   const [posClass, setPosClass] = useState('mt-1.5');
 
-  const selectClassList = generateClassList(!!icon);
+  const selectClassList = {
+    size: {
+      sm: !!icon ? 'text-sm pr-7 pl-13 py-2 h-9' : 'text-sm px-5 py-2 h-9',
+      xs: !!icon ? 'text-xs pr-5 pl-12 py-2 h-8' : 'text-xs px-3 py-2 h-8',
+      md: !!icon ? 'text-sm pr-8 pl-14 py-3 h-11' : 'text-sm px-6 py-3 h-11',
+      lg: !!icon ? 'text-sm pr-9 pl-16 py-4 h-13' : 'text-sm px-7 py-4 h-13',
+    },
+    iconSize: {
+      sm: 'text-sm w-9',
+      xs: 'text-xs w-8',
+      md: 'text-sm w-10',
+      lg: 'text-base w-12',
+    },
+  };
   const { iconSize: iconSizeClass, size: sizeClass } = selectClassList;
 
   return (
@@ -65,7 +78,7 @@ const BaseSelect: FC<SelectProps> = ({
     >
       <Listbox value={value} onChange={handler} multiple={multiple}>
         <Listbox.Label
-          className={`mb-1 inline-block px-1 text-xs font-medium ${
+          className={`mb-1 inline-block px-1 pr-6 text-xs font-medium ${
             hideLabel ? 'sr-only' : ''
           }`}
         >
