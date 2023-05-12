@@ -13,6 +13,7 @@ import {
   faMessageSmile,
   faPhone as faPhoneReg,
   faSpa,
+  faTags,
   faTextSize,
   faXmark,
 } from '@fortawesome/pro-regular-svg-icons';
@@ -44,6 +45,7 @@ const icons = {
   'reg-message-smile': faMessageSmile,
   'reg-phone': faPhoneReg,
   'reg-spa': faSpa,
+  'reg-tags': faTags,
   'reg-text-size': faTextSize,
   'reg-xmark': faXmark,
   instagram: faInstagram,

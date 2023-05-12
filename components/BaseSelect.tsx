@@ -10,6 +10,7 @@ interface BaseSelectProps extends FormElemProps {
   icon?: Icons;
   className?: string;
   options: SelectOption[];
+  placeholder?: string;
 }
 
 interface SingleProps extends BaseSelectProps {
@@ -46,6 +47,7 @@ const BaseSelect: FC<SelectProps> = ({
   options,
   value,
   handler,
+  placeholder,
   multiple = false,
   fieldSize = 'md',
   hideLabel = false,
@@ -73,7 +75,7 @@ const BaseSelect: FC<SelectProps> = ({
         <div className="relative">
           {!!icon && (
             <span
-              className={`absolute bottom-1 left-1 top-1 z-10 flex items-center justify-center rounded bg-secondary text-sm text-white ${iconSizeClass[fieldSize]}`}
+              className={`absolute bottom-1 left-1 top-1 z-10 flex items-center justify-center rounded bg-secondary text-base text-white ${iconSizeClass[fieldSize]}`}
             >
               <BaseIcon icon={icon} />
             </span>
@@ -84,10 +86,14 @@ const BaseSelect: FC<SelectProps> = ({
             onClick={(e) => setPosClass(setOptionsPosition(e))}
           >
             <span className="block truncate">
+              {Array.isArray(value) && value.length === 0 && (
+                <span className="text-gray-400">{placeholder || label}</span>
+              )}
               {Array.isArray(value)
                 ? value.map((val) => val.label).join(', ')
                 : value.label}
             </span>
+
             <span className="pointer-events-none absolute inset-y-0 right-0 flex w-9 items-center justify-center">
               <BaseIcon
                 icon="reg-chevron-down"
@@ -109,11 +115,7 @@ const BaseSelect: FC<SelectProps> = ({
               {options.map((option) => (
                 <Listbox.Option
                   key={option.id}
-                  className={({ active, disabled }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 text-xs ${
-                      active ? 'bg-accent/20 text-amber-900' : 'text-gray-800'
-                    } ${disabled ? 'text-gray-300' : ''}`
-                  }
+                  className="relative cursor-default select-none py-2 pl-10 pr-4 text-xs text-gray-800 ui-active:bg-accent/20 ui-active:text-amber-900 ui-disabled:cursor-not-allowed ui-disabled:text-gray-300"
                   value={option}
                   disabled={option.disabled}
                 >
