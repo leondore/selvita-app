@@ -3,7 +3,6 @@ import type { UnionSubType } from '@/types/base';
 import type { FormClassList, FormElemProps } from '@/types/forms';
 import BaseIcon, { type Icons } from '@/components/BaseIcon';
 import { keyify } from '@/utils/helpers';
-import { generateClassList } from '@/utils/forms';
 
 type OpenTypeOptions = 'text' | 'number';
 type SetTypeOptions = 'email' | 'password' | 'search' | 'tel' | 'url';

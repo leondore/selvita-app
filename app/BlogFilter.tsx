@@ -1,16 +1,17 @@
 'use client';
 
-import { SelectOption } from '@/types/forms';
-import { useState } from 'react';
+import type { SelectOption } from '@/types/forms';
+import type { FormEvent } from 'react';
 import BaseInput from '@/components/BaseInput';
 import BaseSelect from '@/components/BaseSelect';
+import BaseButton from '@/components/BaseButton';
 import Frame from '@/components/Frame';
 
 const categories: SelectOption[] = [
   {
     id: 'wksadfaji4',
     value: '',
-    label: 'Filtrar por Categorias...',
+    label: 'Filtrar por Categoria...',
     disabled: false,
   },
   { id: 'asdkjfaksjdf', value: 'cultivo', label: 'Cultivo', disabled: false },
@@ -55,45 +56,58 @@ const tagOptions: SelectOption[] = [
     disabled: false,
   },
 ];
+
 const BlogFilter = () => {
-  const [search, setSearch] = useState('');
-  const [category, setCategories] = useState(categories[0]);
-  const [tags, setTags] = useState<SelectOption[]>([]);
+  const testFormData = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+  };
 
   return (
     <Frame className="bg-gray-100">
-      <BaseInput
-        type="search"
-        hasIcon
-        hideLabel
-        className="col-span-4"
-        label="Buscar entradas"
-        placeholder="Buscar..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <form
+        className="col-span-12 flex items-center gap-5"
+        onSubmit={testFormData}
+      >
+        <BaseInput
+          type="search"
+          name="search"
+          hasIcon
+          hideLabel
+          className="flex-1"
+          label="Buscar entradas"
+          placeholder="Buscar..."
+          defaultValue=""
+        />
 
-      <BaseSelect
-        hideLabel
-        icon="reg-boxes-stacked"
-        label="Filtrar por Categorias"
-        options={categories}
-        value={category}
-        handler={setCategories}
-        className="col-span-4"
-      />
+        <BaseSelect
+          name="category"
+          hideLabel
+          icon="reg-boxes-stacked"
+          label="Filtrar por Categorias"
+          options={categories}
+          defaultValue={categories[0]}
+          className="flex-1"
+        />
 
-      <BaseSelect
-        multiple
-        hideLabel
-        icon="reg-tags"
-        label="Filtrar por Etiquetas"
-        placeholder="Filtrar por Etiquetas..."
-        options={tagOptions}
-        value={tags}
-        handler={setTags}
-        className="col-span-4"
-      />
+        <BaseSelect
+          name="tags"
+          multiple
+          hideLabel
+          icon="reg-tags"
+          label="Filtrar por Etiquetas"
+          placeholder="Filtrar por Etiquetas..."
+          options={tagOptions}
+          defaultValue={[]}
+          className="flex-1"
+        />
+
+        <BaseButton type="submit" intent="secondary" className="flex-none">
+          Filter
+        </BaseButton>
+      </form>
     </Frame>
   );
 };

@@ -4,7 +4,6 @@ import { Fragment, useState, type FC, SyntheticEvent } from 'react';
 import type { FormElemProps, SelectOption } from '@/types/forms';
 import { Listbox, Transition } from '@headlessui/react';
 import BaseIcon, { type Icons } from '@/components/BaseIcon';
-import { generateClassList } from '@/utils/forms';
 
 interface BaseSelectProps extends FormElemProps {
   icon?: Icons;
@@ -15,14 +14,16 @@ interface BaseSelectProps extends FormElemProps {
 
 interface SingleProps extends BaseSelectProps {
   multiple?: false;
-  value: SelectOption;
-  handler: (value: SelectOption) => void;
+  value?: SelectOption;
+  defaultValue?: SelectOption;
+  handler?: (value: SelectOption) => void;
 }
 
 interface MultiProps extends BaseSelectProps {
   multiple?: true;
-  value: SelectOption[];
-  handler: (value: SelectOption[]) => void;
+  value?: SelectOption[];
+  defaultValue?: SelectOption[];
+  handler?: (value: SelectOption[]) => void;
 }
 
 type SelectProps = SingleProps | MultiProps;
@@ -45,7 +46,9 @@ const BaseSelect: FC<SelectProps> = ({
   icon,
   label,
   options,
+  name,
   value,
+  defaultValue,
   handler,
   placeholder,
   multiple = false,
@@ -76,7 +79,13 @@ const BaseSelect: FC<SelectProps> = ({
       className={`sdc-select relative inline-block min-w-[12rem] ${className}`}
       data-component="select"
     >
-      <Listbox value={value} onChange={handler} multiple={multiple}>
+      <Listbox
+        name={name}
+        value={value}
+        defaultValue={defaultValue}
+        onChange={handler}
+        multiple={multiple}
+      >
         <Listbox.Label
           className={`mb-1 inline-block px-1 pr-6 text-xs font-medium ${
             hideLabel ? 'sr-only' : ''
@@ -98,22 +107,34 @@ const BaseSelect: FC<SelectProps> = ({
             className={`relative w-full cursor-default rounded border border-gray-300 bg-white text-left leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]}`}
             onClick={(e) => setPosClass(setOptionsPosition(e))}
           >
-            <span className="block truncate">
-              {Array.isArray(value) && value.length === 0 && (
-                <span className="text-gray-400">{placeholder || label}</span>
-              )}
-              {Array.isArray(value)
-                ? value.map((val) => val.label).join(', ')
-                : value.label}
-            </span>
+            {({ value }) => (
+              <>
+                <span
+                  className={`block truncate ${
+                    !Array.isArray(value) && value.value.length === 0
+                      ? 'text-gray-400'
+                      : ''
+                  }`}
+                >
+                  {Array.isArray(value) && value.length === 0 && (
+                    <span className="text-gray-400">
+                      {placeholder || label}
+                    </span>
+                  )}
+                  {Array.isArray(value)
+                    ? value.map((val) => val.label).join(', ')
+                    : value.label}
+                </span>
 
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex w-9 items-center justify-center">
-              <BaseIcon
-                icon="reg-chevron-down"
-                className="chevron text-gray-600 transition-transform duration-200 ease-in-out"
-                aria-hidden="true"
-              />
-            </span>
+                <span className="pointer-events-none absolute inset-y-0 right-0 flex w-9 items-center justify-center">
+                  <BaseIcon
+                    icon="reg-chevron-down"
+                    className="chevron text-gray-600 transition-transform duration-200 ease-in-out"
+                    aria-hidden="true"
+                  />
+                </span>
+              </>
+            )}
           </Listbox.Button>
 
           <Transition

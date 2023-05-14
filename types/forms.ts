@@ -12,6 +12,7 @@ export interface FormClassList {
 }
 
 export interface FormElemProps {
+  name?: string;
   error?: boolean;
   fieldSize?: FormElemSize;
   hasIcon?: boolean;
