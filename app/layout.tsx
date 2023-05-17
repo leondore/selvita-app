@@ -16,7 +16,7 @@ const poppinsFont = Poppins({
 
 const montserratFont = Montserrat({
   subsets: ['latin'],
-  weight: ['200', '400'],
+  weight: ['200', '400', '600'],
   variable: '--font-montserrat',
 });
 

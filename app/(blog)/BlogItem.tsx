@@ -1,35 +1,45 @@
 import type { FC } from 'react';
 import type { User } from '@/types/base';
 import Image from 'next/image';
+import DOMPurify from 'isomorphic-dompurify';
 
-interface Props {
+export interface Post {
   imageUrl: string;
   author?: User;
   comments?: number;
   likes?: number;
   title: string;
-  content?: string;
   date: string;
+  content: string;
 }
 
-const BlogItem: FC<Props> = ({
-  imageUrl,
-  author,
-  comments,
-  likes,
-  title,
-  content,
-  date,
-}) => {
+interface Props {
+  post: Post;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const BlogItem: FC<Props> = ({ post, children, className }) => {
+  const content = { __html: DOMPurify.sanitize(post.content) };
+
   return (
     <article>
       <header>
-        <div className="relative">
-          <Image src={imageUrl} alt={title} width={616} height={411} />
-          <span className="block">{date}</span>
+        <div className="relative mb-8">
+          <Image
+            src={post.imageUrl}
+            alt={post.title}
+            width={616}
+            height={322}
+          />
+          <span className="absolute -bottom-6 right-6 block w-17 rounded bg-primary px-4 py-3 text-center font-medium leading-tight text-white shadow">
+            {post.date}
+          </span>
         </div>
-        <h3>{title}</h3>
+        <h3>{post.title}</h3>
       </header>
+
+      <div dangerouslySetInnerHTML={content}></div>
     </article>
   );
 };

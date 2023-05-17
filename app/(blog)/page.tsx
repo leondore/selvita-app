@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { Great_Vibes } from 'next/font/google';
 import Hero from '@/components/Hero';
 import BlogFilter from '@/app/(blog)/BlogFilter';
-import BlogItem from './BlogItem';
+import BlogItem, { type Post } from './BlogItem';
 
 const greatVibes = Great_Vibes({
   subsets: ['latin'],
@@ -21,6 +21,14 @@ interface Props {
     tags?: string[];
   };
 }
+
+const testPost: Post = {
+  imageUrl: '/blog1.webp',
+  title: 'Complete solution for your land & garden design',
+  date: '21 May',
+  content:
+    '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor tellus sed lacus elementum elementum. Vivamus egestas neque sed eros venenatis, ut sollicitudin metus tempor. Curabitur auctor arcu est, et maximus neque aliquet nec. Aliquam in dolor eu tortor luctus auctor.</p> <p>Nullam scelerisque ante pellentesque, hendrerit ex id, porta lectus. Integer maximus lobortis purus eget ullamcorper. Mauris est erat, sollicitudin nec porta sit amet, lobortis at turpis. Phasellus ligula mauris, eleifend nec dictum ut, sagittis nec orci. Aenean ut commodo magna.</p>',
+};
 
 const Home: FC<Props> = ({ searchParams }) => {
   return (
@@ -44,11 +52,7 @@ const Home: FC<Props> = ({ searchParams }) => {
         <BlogFilter />
 
         <div className="grid grid-cols-2 gap-8 pt-10 md:pt-12 lg:pt-16 xl:pt-20">
-          <BlogItem
-            imageUrl="/blog1.webp"
-            title="Complete solution for your land & garden design"
-            date="21 May"
-          />
+          <BlogItem post={testPost} />
         </div>
       </div>
     </main>
