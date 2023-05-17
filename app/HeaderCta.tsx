@@ -1,9 +1,9 @@
 'use client';
 
 import type { FC } from 'react';
-import type { FormElemSize } from '@/types/base';
+import type { FormElemSize } from '@/types/forms';
 import { useRouter } from 'next/navigation';
-import BaseButton from '@/components/BaseButton';
+import BaseButton from '@/components/ui/BaseButton';
 
 interface HeaderCtaProps {
   className?: string;

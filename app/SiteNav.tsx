@@ -1,7 +1,7 @@
-import '@/components/layout/SiteNav.css';
+import '@/app/SiteNav.css';
 
 import { FC } from 'react';
-import NavItem from '@/components/layout/NavItem';
+import NavItem from '@/app/NavItem';
 import { nav } from '@/utils/constants';
 
 interface SiteNavProps {

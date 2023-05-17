@@ -5,8 +5,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
 import './main.css';
-import TopBar from '@/components/layout/TopBar';
-import Header from '@/components/layout/Header';
+import TopBar from '@/app/TopBar';
+import Header from '@/app/Header';
 
 const poppinsFont = Poppins({
   subsets: ['latin'],

@@ -1,9 +1,9 @@
-import '@/components/BaseSelect.css';
+import '@/components/ui/BaseSelect.css';
 
 import { Fragment, useState, type FC, SyntheticEvent } from 'react';
 import type { FormElemProps, SelectOption } from '@/types/forms';
 import { Listbox, Transition } from '@headlessui/react';
-import BaseIcon, { type Icons } from '@/components/BaseIcon';
+import BaseIcon, { type Icons } from '@/components/ui/BaseIcon';
 
 interface BaseSelectProps extends FormElemProps {
   icon?: Icons;

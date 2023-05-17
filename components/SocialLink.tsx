@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import BaseIcon from '@/components/BaseIcon';
+import BaseIcon from '@/components/ui/BaseIcon';
 import { contactInfo } from '@/utils/constants';
 
 type SocialLinkProps = {

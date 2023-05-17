@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 import { Great_Vibes } from 'next/font/google';
-import Hero from '@/components/layout/Hero';
-import BlogFilter from '@/app/BlogFilter';
+import Hero from '@/components/Hero';
+import BlogFilter from '@/app/(blog)/BlogFilter';
+import BlogItem from './BlogItem';
 
 const greatVibes = Great_Vibes({
   subsets: ['latin'],
@@ -39,11 +40,19 @@ const Home: FC<Props> = ({ searchParams }) => {
         </p>
       </Hero>
 
-      <div className="mx-auto max-w-7xl px-6 pt-20">
+      <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-12 lg:pt-16 xl:pt-20">
         <BlogFilter />
+
+        <div className="grid grid-cols-2 gap-8 pt-10 md:pt-12 lg:pt-16 xl:pt-20">
+          <BlogItem
+            imageUrl="/blog1.webp"
+            title="Complete solution for your land & garden design"
+            date="21 May"
+          />
+        </div>
       </div>
     </main>
   );
-}
+};
 
 export default Home;

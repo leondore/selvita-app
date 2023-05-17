@@ -2,10 +2,10 @@
 
 import type { SelectOption } from '@/types/forms';
 import type { FormEvent } from 'react';
-import BaseInput from '@/components/BaseInput';
-import BaseSelect from '@/components/BaseSelect';
-import BaseButton from '@/components/BaseButton';
-import Frame from '@/components/Frame';
+import BaseInput from '@/components/ui/BaseInput';
+import BaseSelect from '@/components/ui/BaseSelect';
+import BaseButton from '@/components/ui/BaseButton';
+import Frame from '@/components/ui/Frame';
 
 const categories: SelectOption[] = [
   {
@@ -68,7 +68,7 @@ const BlogFilter = () => {
   return (
     <Frame className="bg-gray-100">
       <form
-        className="col-span-12 flex items-center gap-5"
+        className="col-span-12 flex flex-wrap items-center gap-5"
         onSubmit={testFormData}
       >
         <BaseInput
@@ -76,10 +76,10 @@ const BlogFilter = () => {
           name="search"
           hasIcon
           hideLabel
-          className="flex-1"
           label="Buscar entradas"
           placeholder="Buscar..."
           defaultValue=""
+          className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
         />
 
         <BaseSelect
@@ -89,7 +89,7 @@ const BlogFilter = () => {
           label="Filtrar por Categorias"
           options={categories}
           defaultValue={categories[0]}
-          className="flex-1"
+          className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
         />
 
         <BaseSelect
@@ -101,10 +101,14 @@ const BlogFilter = () => {
           placeholder="Filtrar por Etiquetas..."
           options={tagOptions}
           defaultValue={[]}
-          className="flex-1"
+          className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
         />
 
-        <BaseButton type="submit" intent="secondary" className="flex-none">
+        <BaseButton
+          type="submit"
+          intent="secondary"
+          className="basis-full md:basis-[calc(50%-10px)] lg:flex-none"
+        >
           Filter
         </BaseButton>
       </form>

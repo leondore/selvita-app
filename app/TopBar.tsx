@@ -1,4 +1,4 @@
-import BaseIcon from '@/components/BaseIcon';
+import BaseIcon from '@/components/ui/BaseIcon';
 import SocialLink from '@/components/SocialLink';
 import { contactInfo } from '@/utils/constants';
 

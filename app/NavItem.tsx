@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 import Link from 'next/link';
-import BaseIcon from '@/components/BaseIcon';
+import BaseIcon from '@/components/ui/BaseIcon';
 import { usePathname } from 'next/navigation';
 
 interface NavItemProps {

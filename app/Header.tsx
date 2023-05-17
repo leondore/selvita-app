@@ -1,7 +1,7 @@
-import BaseSvg from '@/components/BaseSvg';
-import SiteNav from '@/components/layout/SiteNav';
-import MobileNav from '@/components/layout/MobileNav';
-import HeaderCta from '@/components/layout//HeaderCta';
+import BaseSvg from '@/components/ui/BaseSvg';
+import SiteNav from '@/app/SiteNav';
+import MobileNav from '@/app/MobileNav';
+import HeaderCta from '@/app/HeaderCta';
 
 const Header = () => {
   return (

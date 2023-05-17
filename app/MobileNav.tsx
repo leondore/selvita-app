@@ -1,10 +1,10 @@
 'use client';
 
-import '@/components/layout/MobileNav.css';
+import '@/app/MobileNav.css';
 
 import { FC } from 'react';
 import { useState } from 'react';
-import MobilePanel from '@/components/layout/MobilePanel';
+import MobilePanel from '@/app/MobilePanel';
 
 interface MobileNavProps {
   className?: string;
@@ -18,7 +18,7 @@ const MobileNav: FC<MobileNavProps> = ({ className = '' }) => {
       <button
         className={`hamburger inline-block ${isMenuOpen ? 'is-active' : ''}`}
         type="button"
-        onClick={() => setIsMenuOpen(true)}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <span className="hamburger-box">
           <span className="hamburger-inner"></span>

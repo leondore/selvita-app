@@ -1,7 +1,7 @@
 import type { InputHTMLAttributes, HTMLInputTypeAttribute, FC } from 'react';
 import type { UnionSubType } from '@/types/base';
 import type { FormClassList, FormElemProps } from '@/types/forms';
-import BaseIcon, { type Icons } from '@/components/BaseIcon';
+import BaseIcon, { type Icons } from '@/components/ui/BaseIcon';
 import { keyify } from '@/utils/helpers';
 
 type OpenTypeOptions = 'text' | 'number';
