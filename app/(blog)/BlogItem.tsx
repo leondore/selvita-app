@@ -15,15 +15,14 @@ export interface Post {
 
 interface Props {
   post: Post;
-  children?: React.ReactNode;
   className?: string;
 }
 
-const BlogItem: FC<Props> = ({ post, children, className }) => {
+const BlogItem: FC<Props> = ({ post, className }) => {
   const content = { __html: DOMPurify.sanitize(post.content) };
 
   return (
-    <article>
+    <article className={className}>
       <header>
         <div className="relative mb-8">
           <Image
@@ -31,15 +30,16 @@ const BlogItem: FC<Props> = ({ post, children, className }) => {
             alt={post.title}
             width={616}
             height={322}
+            className="rounded-md"
           />
           <span className="absolute -bottom-6 right-6 block w-17 rounded bg-primary px-4 py-3 text-center font-medium leading-tight text-white shadow">
             {post.date}
           </span>
         </div>
-        <h3>{post.title}</h3>
+        <h3 className="mb-2">{post.title}</h3>
       </header>
 
-      <div dangerouslySetInnerHTML={content}></div>
+      <div className="text-sm" dangerouslySetInnerHTML={content}></div>
     </article>
   );
 };

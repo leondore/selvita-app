@@ -3,7 +3,7 @@
 import type { SelectOption } from '@/types/forms';
 import type { FormEvent } from 'react';
 import BaseInput from '@/components/ui/BaseInput';
-import BaseSelect from '@/components/ui/BaseSelect';
+import BaseListbox from '@/components/ui/BaseListbox';
 import BaseButton from '@/components/ui/BaseButton';
 import Frame from '@/components/ui/Frame';
 
@@ -58,7 +58,7 @@ const tagOptions: SelectOption[] = [
 ];
 
 const BlogFilter = () => {
-  const testFormData = (e: FormEvent<HTMLFormElement>) => {
+  const testFormData = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -82,7 +82,7 @@ const BlogFilter = () => {
           className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
         />
 
-        <BaseSelect
+        <BaseListbox
           name="category"
           hideLabel
           icon="reg-boxes-stacked"
@@ -92,7 +92,7 @@ const BlogFilter = () => {
           className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
         />
 
-        <BaseSelect
+        <BaseListbox
           name="tags"
           multiple
           hideLabel
