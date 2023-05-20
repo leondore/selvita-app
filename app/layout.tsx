@@ -1,4 +1,4 @@
-import { Poppins, Montserrat } from 'next/font/google';
+import { Poppins, Great_Vibes } from 'next/font/google';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -12,12 +12,14 @@ const poppinsFont = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
   variable: '--font-poppins',
+  display: 'swap',
 });
 
-const montserratFont = Montserrat({
+const greatVibesFont = Great_Vibes({
   subsets: ['latin'],
-  weight: ['200', '400', '600'],
-  variable: '--font-montserrat',
+  weight: ['400'],
+  variable: '--font-great-vibes',
+  display: 'swap',
 });
 
 export const metadata = {
@@ -33,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppinsFont.variable} ${montserratFont.variable}`}
+      className={`${poppinsFont.variable} ${greatVibesFont.variable}`}
     >
       <body>
         <header>

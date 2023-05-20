@@ -17,7 +17,7 @@ module.exports = {
         },
         secondary: {
           DEFAULT: '#764B29',
-          interact: '#3C2615',
+          interact: '#52351D',
         },
         tertiary: '#9AB257',
         accent: '#FFAA33',
@@ -40,7 +40,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
-        display: ['var(--font-montserrat)', 'sans-serif'],
+        display: ['var(--font-great-vibes)', 'cursive'],
       },
       spacing: {
         0.75: '0.1875rem',
