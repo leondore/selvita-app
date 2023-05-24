@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import Hero from '@/components/Hero';
-import BlogFilter from '@/app/(blog)/BlogFilter';
 import BlogItem, { type Post } from './BlogItem';
 import BaseButton from '@/components/ui/BaseButton';
+import HeroImage from '@/public/hero.webp';
+import BasePopover from '@/components/ui/BasePopover';
 
 export const metadata = {
   title: 'Hello bro',
@@ -54,25 +55,12 @@ const anotherTestPost: Post = {
 const Home: FC<Props> = ({ searchParams }) => {
   return (
     <main>
-      <Hero>
-        <h1 className="mb-4 font-display text-4xl leading-none text-white md:text-6xl lg:text-7xl">
-          La selvita de concreto
-        </h1>
-        <p className="text-white">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-          enim orci, mollis ac nulla eget, vulputate dignissim libero. In a
-          velit dui. Vestibulum sodales luctus volutpat. Etiam lobortis, urna id
-          tristique ultricies, sapien risus consequat tortor, sit amet efficitur
-          nisl nisi ac odio.
-        </p>
-      </Hero>
+      <Hero image={HeroImage} />
 
       <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-12 lg:pt-16 xl:pt-20">
         <div className="flex items-center justify-between">
           <h2 className="font-display">Diario en la Selvita</h2>
-          <BaseButton intent="secondary" size="md" icon="reg-sliders-up">
-            Filtrar
-          </BaseButton>
+          <BasePopover />
         </div>
 
         <div className="grid grid-cols-1 gap-10 pt-8 md:grid-cols-2 md:pt-10 lg:pt-12 xl:pt-14">
