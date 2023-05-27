@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import Hero from '@/components/Hero';
-import BlogItem, { type Post } from './BlogItem';
-import BaseButton from '@/components/ui/BaseButton';
+import BlogItem, { type Post } from '@/app/(blog)/BlogItem';
+import BlogFilter from '@/app/(blog)/BlogFilter';
 import HeroImage from '@/public/hero.webp';
 import BasePopover from '@/components/ui/BasePopover';
 
@@ -60,7 +60,7 @@ const Home: FC<Props> = ({ searchParams }) => {
       <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-12 lg:pt-16 xl:pt-20">
         <div className="flex items-center justify-between">
           <h2 className="font-display">Diario en la Selvita</h2>
-          <BasePopover />
+          <BlogFilter />
         </div>
 
         <div className="grid grid-cols-1 gap-10 pt-8 md:grid-cols-2 md:pt-10 lg:pt-12 xl:pt-14">

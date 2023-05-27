@@ -40,6 +40,7 @@ const BaseInput: FC<BaseInputProps> = ({
   fieldSize = 'md',
   hasIcon = false,
   hideLabel = false,
+  background = 'white',
   className = '',
   ...props
 }) => {
@@ -72,6 +73,8 @@ const BaseInput: FC<BaseInputProps> = ({
     size: sizeClass,
   } = inputClassList;
 
+  const bgClass = background === 'white' ? 'bg-white' : 'bg-gray-100';
+
   const iconName =
     (type === 'text' || type === 'number') && icon ? icon : iconClass[type];
 
@@ -101,7 +104,7 @@ const BaseInput: FC<BaseInputProps> = ({
         <input
           id={keyify(label)}
           type={type}
-          className={`w-full rounded border border-gray-300 bg-white leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]}`}
+          className={`w-full rounded border border-gray-300 leading-none text-gray-900 transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]} ${bgClass}`}
           {...props}
         />
       </div>

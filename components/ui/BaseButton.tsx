@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, FC } from 'react';
 import type { FormElemSize, FormElemSizeClassList } from '@/types/forms';
 import BaseIcon, { type Icons } from '@/components/ui/BaseIcon';
 
-type ButtonIntent = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export type ButtonIntent = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 type IntentClassList = {
   [key in ButtonIntent]: string;
 };

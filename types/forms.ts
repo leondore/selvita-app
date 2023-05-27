@@ -18,6 +18,7 @@ export interface FormElemProps {
   hasIcon?: boolean;
   label: string;
   hideLabel?: boolean;
+  background?: 'white' | 'gray';
 }
 
 export interface SelectOption {

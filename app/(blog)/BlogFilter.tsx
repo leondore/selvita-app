@@ -2,10 +2,10 @@
 
 import type { SelectOption } from '@/types/forms';
 import type { FormEvent } from 'react';
+import BasePopover from '@/components/ui/BasePopover';
 import BaseInput from '@/components/ui/BaseInput';
 import BaseListbox from '@/components/ui/BaseListbox';
 import BaseButton from '@/components/ui/BaseButton';
-import Frame from '@/components/ui/Frame';
 
 const categories: SelectOption[] = [
   {
@@ -66,53 +66,58 @@ const BlogFilter = () => {
   };
 
   return (
-    <Frame className="bg-gray-100">
-      <form
-        className="col-span-12 flex flex-wrap items-center gap-5"
-        onSubmit={testFormData}
-      >
-        <BaseInput
-          type="search"
-          name="search"
-          hasIcon
-          hideLabel
-          label="Buscar entradas"
-          placeholder="Buscar..."
-          defaultValue=""
-          className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
-        />
+    <BasePopover
+      width={284}
+      triggerText="Filtrar"
+      triggerIcon="reg-sliders-up"
+      triggerIntent="secondary"
+    >
+      <form className="pt-6" onSubmit={testFormData}>
+        <div className="px-5">
+          <BaseInput
+            type="search"
+            name="search"
+            hasIcon
+            hideLabel
+            label="Buscar entradas"
+            placeholder="Buscar..."
+            defaultValue=""
+            background="gray"
+            className="mb-4 w-full"
+          />
 
-        <BaseListbox
-          name="category"
-          hideLabel
-          icon="reg-boxes-stacked"
-          label="Filtrar por Categorias"
-          options={categories}
-          defaultValue={categories[0]}
-          className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
-        />
+          <BaseListbox
+            name="category"
+            hideLabel
+            icon="reg-boxes-stacked"
+            label="Filtrar por Categorias"
+            options={categories}
+            defaultValue={categories[0]}
+            background="gray"
+            className="mb-4 w-full"
+          />
 
-        <BaseListbox
-          name="tags"
-          multiple
-          hideLabel
-          icon="reg-tags"
-          label="Filtrar por Etiquetas"
-          placeholder="Filtrar por Etiquetas..."
-          options={tagOptions}
-          defaultValue={[]}
-          className="basis-full md:basis-[calc(50%-10px)] lg:flex-1"
-        />
+          <BaseListbox
+            name="tags"
+            multiple
+            hideLabel
+            icon="reg-tags"
+            label="Filtrar por Etiquetas"
+            placeholder="Filtrar por Etiquetas..."
+            options={tagOptions}
+            defaultValue={[]}
+            background="gray"
+            className="mb-4 w-full"
+          />
+        </div>
 
-        <BaseButton
-          type="submit"
-          intent="secondary"
-          className="basis-full md:basis-[calc(50%-10px)] lg:flex-none"
-        >
-          Filter
-        </BaseButton>
+        <div className="rounded-b-lg bg-gray-100 px-5 py-4">
+          <BaseButton type="submit" intent="secondary" className="w-full">
+            Filter
+          </BaseButton>
+        </div>
       </form>
-    </Frame>
+    </BasePopover>
   );
 };
 

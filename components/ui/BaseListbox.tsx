@@ -56,6 +56,7 @@ const BaseListbox: FC<ListboxProps> = ({
   multiple = false,
   fieldSize = 'md',
   hideLabel = false,
+  background = 'white',
   className = '',
 }) => {
   const [posClass, setPosClass] = useState('mt-1.5');
@@ -75,6 +76,8 @@ const BaseListbox: FC<ListboxProps> = ({
     },
   };
   const { iconSize: iconSizeClass, size: sizeClass } = listboxClassList;
+
+  const bgClass = background === 'white' ? 'bg-white' : 'bg-gray-100';
 
   return (
     <div
@@ -106,7 +109,7 @@ const BaseListbox: FC<ListboxProps> = ({
           )}
 
           <Listbox.Button
-            className={`relative w-full cursor-default rounded border border-gray-300 bg-white text-left leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]}`}
+            className={`relative w-full cursor-default rounded border border-gray-300 text-left leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]} ${bgClass}`}
             onClick={(e) => setPosClass(setOptionsPosition(e))}
           >
             {({ value }) => (
@@ -115,7 +118,7 @@ const BaseListbox: FC<ListboxProps> = ({
                   className={`block truncate ${
                     !Array.isArray(value) && value.value.length === 0
                       ? 'text-gray-400'
-                      : ''
+                      : 'text-gray-900'
                   }`}
                 >
                   {Array.isArray(value) && value.length === 0 && (
