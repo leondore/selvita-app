@@ -113,7 +113,7 @@ const BlogFilter = () => {
 
         <div className="rounded-b-lg bg-gray-100 px-5 py-4">
           <BaseButton type="submit" intent="secondary" className="w-full">
-            Filter
+            Filtrar
           </BaseButton>
         </div>
       </form>
