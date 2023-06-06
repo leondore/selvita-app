@@ -1,4 +1,6 @@
-import type { UnionSubType, SizeOptions } from '@/types/base';
+export type UnionSubType<T, U extends T> = U;
+
+export type SizeOptions = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type FormElemSize = UnionSubType<SizeOptions, 'xs' | 'sm' | 'md' | 'lg'>;
 
@@ -27,3 +29,28 @@ export interface SelectOption {
   value: string;
   disabled?: boolean;
 }
+
+export type NavItem = {
+  name: string;
+  label: string;
+  path: string;
+};
+
+export type ContactInfo = {
+  email: string;
+  phone: string;
+  instagram: string;
+  facebook: string;
+  twitter: string;
+  pinterest: string;
+};
+
+export type SiteConfig = {
+  contactInfo: ContactInfo;
+  nav: NavItem[];
+};
+
+export type Svg = {
+  viewBox: string;
+  content: string;
+};

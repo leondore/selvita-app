@@ -1,7 +1,4 @@
-type Svg = {
-  viewBox: string;
-  content: string;
-};
+import { Svg } from '@/types';
 
 const logo: Svg = {
   viewBox: '0 0 135 48',

@@ -5,7 +5,7 @@ import BaseSvg from '@/components/ui/BaseSvg';
 import BaseIcon from '@/components/ui/BaseIcon';
 import NavItem from '@/app/NavItem';
 import HeaderCta from '@/app/HeaderCta';
-import { nav } from '@/utils/constants';
+import { siteConfig } from '@/config/site';
 
 interface MobilePanelProps {
   className?: string;
@@ -13,6 +13,8 @@ interface MobilePanelProps {
 }
 
 const MobilePanel: FC<MobilePanelProps> = ({ toggleMenu, className = '' }) => {
+  const { nav } = siteConfig;
+
   return (
     <nav
       className={`nav--mobile fixed left-0 top-0 z-50 flex h-screen w-full max-w-[18rem] -translate-x-full flex-col justify-between bg-white py-4 shadow-2xl transition-transform duration-500 ease-in-out ${className}`}

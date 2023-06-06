@@ -1,7 +1,7 @@
 import type { FC } from 'react';
-import type { Svgs } from '@/utils/svg';
+import type { Svgs } from '@/assets/svg';
 
-import { svgs } from '@/utils/svg';
+import { svgs } from '@/assets/svg';
 
 type BaseSvgProps = {
   image: Svgs;

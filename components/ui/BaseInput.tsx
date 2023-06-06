@@ -1,8 +1,8 @@
 import type { InputHTMLAttributes, HTMLInputTypeAttribute, FC } from 'react';
-import type { UnionSubType } from '@/types/base';
-import type { FormClassList, FormElemProps } from '@/types/forms';
+import type { UnionSubType } from '@/types';
+import type { FormClassList, FormElemProps } from '@/types';
 import BaseIcon, { type Icons } from '@/components/ui/BaseIcon';
-import { keyify } from '@/utils/helpers';
+import { keyify } from '@/lib/utils';
 
 type OpenTypeOptions = 'text' | 'number';
 type SetTypeOptions = 'email' | 'password' | 'search' | 'tel' | 'url';

@@ -1,6 +1,6 @@
 'use client';
 
-import type { FormElemSize } from '@/types/forms';
+import type { FormElemSize } from '@/types';
 import type { Icons } from '@/components/ui/BaseIcon';
 import { Fragment, type FC } from 'react';
 import { Popover, Transition } from '@headlessui/react';

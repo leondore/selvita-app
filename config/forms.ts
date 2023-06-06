@@ -1,6 +1,6 @@
-import { FormClassList } from '@/types/forms';
+import { FormClassList } from '@/types';
 
-const generateClassList = (hasIcon: boolean = false): FormClassList => {
+export const generateClassList = (hasIcon: boolean = false): FormClassList => {
   return {
     size: {
       sm: !!hasIcon ? 'text-sm pr-5 pl-13 py-2 h-9' : 'text-sm px-5 py-2 h-9',
@@ -16,5 +16,3 @@ const generateClassList = (hasIcon: boolean = false): FormClassList => {
     },
   };
 };
-
-export { generateClassList };

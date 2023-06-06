@@ -2,13 +2,15 @@ import '@/app/SiteNav.css';
 
 import { FC } from 'react';
 import NavItem from '@/app/NavItem';
-import { nav } from '@/utils/constants';
+import { siteConfig } from '@/config/site';
 
 interface SiteNavProps {
   className?: string;
 }
 
 const Nav: FC<SiteNavProps> = ({ className = '' }) => {
+  const { nav } = siteConfig;
+
   return (
     <nav className={`flex-auto ${className}`} data-component="site-navigation">
       <ul className="sm:flex sm:items-center">

@@ -1,6 +1,6 @@
 'use client';
 
-import type { SelectOption } from '@/types/forms';
+import type { SelectOption } from '@/types';
 import type { FormEvent } from 'react';
 import BasePopover from '@/components/ui/BasePopover';
 import BaseInput from '@/components/ui/BaseInput';

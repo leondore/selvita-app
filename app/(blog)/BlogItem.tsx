@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { User } from '@/types/base';
+import type { User } from '@prisma/client';
 import Image from 'next/image';
 import DOMPurify from 'isomorphic-dompurify';
 import BaseIcon from '@/components/ui/BaseIcon';
@@ -41,7 +41,7 @@ const BlogItem: FC<Props> = ({ post, className }) => {
         <div className="mb-6 flex items-center gap-5">
           <div className="hidden text-sm font-medium text-gray-600 sm:block">
             <BaseIcon icon="reg-user" className="mr-1 text-base text-primary" />{' '}
-            {post.author.fullname}
+            {post.author.name}
           </div>
 
           <div className="text-sm font-medium text-gray-600">

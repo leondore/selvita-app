@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import type { FormElemSize } from '@/types/forms';
+import type { FormElemSize } from '@/types';
 import { useRouter } from 'next/navigation';
 import BaseButton from '@/components/ui/BaseButton';
 

@@ -1,12 +1,14 @@
 import type { FC } from 'react';
 import BaseIcon from '@/components/ui/BaseIcon';
-import { contactInfo } from '@/utils/constants';
+import { siteConfig } from '@/config/site';
 
 type SocialLinkProps = {
   network: 'instagram' | 'pinterest' | 'facebook' | 'twitter';
 };
 
 const SocialLink: FC<SocialLinkProps> = ({ network }) => {
+  const { contactInfo } = siteConfig;
+
   return (
     <a
       href={contactInfo[network]}

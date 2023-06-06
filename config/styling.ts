@@ -1,4 +1,4 @@
-const theme = {
+export const theme = {
   breakpoints: {
     sm: 640,
     md: 768,
@@ -7,5 +7,3 @@ const theme = {
     '2xl': 1536,
   },
 };
-
-export { theme };

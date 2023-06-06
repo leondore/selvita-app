@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { SizeOptions } from '@/types/base';
+import type { SizeOptions } from '@/types';
 
 type FrameProps = {
   className?: string;

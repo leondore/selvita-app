@@ -3,7 +3,7 @@
 import '@/components/ui/BaseListbox.css';
 
 import { Fragment, useState, type FC, SyntheticEvent } from 'react';
-import type { FormElemProps, SelectOption } from '@/types/forms';
+import type { FormElemProps, SelectOption } from '@/types';
 import { Listbox, Transition } from '@headlessui/react';
 import BaseIcon, { type Icons } from '@/components/ui/BaseIcon';
 

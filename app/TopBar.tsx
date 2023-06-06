@@ -1,6 +1,6 @@
 import BaseIcon from '@/components/ui/BaseIcon';
 import SocialLink from '@/components/SocialLink';
-import { contactInfo } from '@/utils/constants';
+import { siteConfig } from '@/config/site';
 
 const socialNetworks = [
   'instagram',
@@ -10,6 +10,8 @@ const socialNetworks = [
 ] as const;
 
 const TopBar = () => {
+  const { contactInfo } = siteConfig;
+
   return (
     <div
       className="bg-dark text-xs font-normal text-white"
