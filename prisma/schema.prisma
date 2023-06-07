@@ -43,7 +43,7 @@ model Post {
   image      String?
   status     POST_STATUS @default(DRAFT)
   author     User        @relation(fields: [authorId], references: [id])
-  authorId   String      @unique
+  authorId   String
   categories Category[]
   tags       Tag[]
 }

@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 import Hero from '@/components/Hero';
-import BlogItem, { type Post } from '@/app/(blog)/BlogItem';
+import BlogItem from '@/app/(blog)/BlogItem';
 import BlogFilter from '@/app/(blog)/BlogFilter';
 import HeroImage from '@/public/hero.webp';
-import BasePopover from '@/components/ui/BasePopover';
+import { db } from '@/lib/db';
 
 export const metadata = {
   title: 'Hello bro',
@@ -18,41 +18,16 @@ interface Props {
   };
 }
 
-const testPost: Post = {
-  imageUrl: '/blog1.webp',
-  title: 'Complete solution for your land & garden design',
-  author: {
-    fullname: 'Stefany Mariano',
-    firstName: 'Stefany',
-    lastName: 'Mariano',
-    email: 'stefany@laselvitadeconcreto.com',
-    id: 'jiasodgfkj',
-  },
-  comments: 2,
-  likes: 5,
-  date: '21 May',
-  content:
-    '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor tellus sed lacus elementum elementum. Vivamus egestas neque sed eros venenatis, ut sollicitudin metus tempor. Curabitur auctor arcu est, et maximus neque aliquet nec. Aliquam in dolor eu tortor luctus auctor.</p> <p>Nullam scelerisque ante pellentesque, hendrerit ex id, porta lectus. Integer maximus lobortis purus eget ullamcorper. Mauris est erat, sollicitudin nec porta sit amet, lobortis at turpis. Phasellus ligula mauris, eleifend nec dictum ut, sagittis nec orci. Aenean ut commodo magna.</p>',
-};
+const Home: FC<Props> = async ({ searchParams }) => {
+  const posts = await db.post.findMany({
+    where: {
+      authorId: 'b973b216-32df-41af-a2ce-2a756c1eba31',
+    },
+    include: {
+      author: true,
+    },
+  });
 
-const anotherTestPost: Post = {
-  imageUrl: '/blog2.webp',
-  title: 'The environmental benefits of tower gardens',
-  author: {
-    fullname: 'Stefany Mariano',
-    firstName: 'Stefany',
-    lastName: 'Mariano',
-    email: 'stefany@laselvitadeconcreto.com',
-    id: 'jiasodgfkj',
-  },
-  comments: 7,
-  likes: 34,
-  date: '14 May',
-  content:
-    '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor tellus sed lacus elementum elementum. Vivamus egestas neque sed eros venenatis, ut sollicitudin metus tempor. Curabitur auctor arcu est, et maximus neque aliquet nec. Aliquam in dolor eu tortor luctus auctor.</p> <p>Nullam scelerisque ante pellentesque, hendrerit ex id, porta lectus. Integer maximus lobortis purus eget ullamcorper. Mauris est erat, sollicitudin nec porta sit amet, lobortis at turpis. Phasellus ligula mauris, eleifend nec dictum ut, sagittis nec orci. Aenean ut commodo magna.</p>',
-};
-
-const Home: FC<Props> = ({ searchParams }) => {
   return (
     <main>
       <Hero image={HeroImage} />
@@ -64,8 +39,9 @@ const Home: FC<Props> = ({ searchParams }) => {
         </div>
 
         <div className="grid grid-cols-1 gap-10 pt-8 md:grid-cols-2 md:pt-10 lg:pt-12 xl:pt-14">
-          <BlogItem post={testPost} />
-          <BlogItem post={anotherTestPost} />
+          {posts.map((post) => (
+            <BlogItem post={post} />
+          ))}
         </div>
       </div>
     </main>

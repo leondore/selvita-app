@@ -1,40 +1,37 @@
 import type { FC } from 'react';
-import type { User } from '@prisma/client';
+import type { User, Post } from '@prisma/client';
 import Image from 'next/image';
 import DOMPurify from 'isomorphic-dompurify';
 import BaseIcon from '@/components/ui/BaseIcon';
 
-export interface Post {
-  imageUrl: string;
-  author: User;
-  comments: number;
-  likes: number;
-  title: string;
-  date: string;
-  content: string;
-}
-
 interface Props {
-  post: Post;
+  post: Post & {
+    author: User;
+  };
   className?: string;
 }
 
 const BlogItem: FC<Props> = ({ post, className }) => {
-  const content = { __html: DOMPurify.sanitize(post.content) };
+  const content = post?.content
+    ? { __html: DOMPurify.sanitize(post.content) }
+    : { __html: '' };
 
   return (
     <article className={className}>
       <header className="mb-4">
         <div className="relative mb-8">
           <Image
-            src={post.imageUrl}
+            src={post.image || '/blog1.webp'}
             alt={post.title}
             width={616}
             height={322}
             className="rounded-md"
           />
           <span className="absolute -bottom-6 right-6 block w-16 rounded bg-primary px-4 py-3 text-center text-sm font-medium leading-tight text-white shadow-md sm:w-17 sm:text-base sm:leading-tight">
-            {post.date}
+            {post.createAt.toLocaleDateString('es-DO', {
+              month: 'short',
+              day: 'numeric',
+            })}
           </span>
         </div>
 
