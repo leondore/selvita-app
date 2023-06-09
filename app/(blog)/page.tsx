@@ -20,27 +20,35 @@ interface Props {
 
 const Home: FC<Props> = async ({ searchParams }) => {
   const posts = await db.post.findMany({
-    where: {
-      authorId: 'b973b216-32df-41af-a2ce-2a756c1eba31',
-    },
     include: {
       author: true,
+      _count: {
+        select: { comments: true, likes: true },
+      },
     },
   });
 
   return (
     <main>
-      <Hero image={HeroImage} />
+      <Hero image={HeroImage}>
+        <h1 className="mb-4 font-display text-4xl leading-none text-white md:text-5xl lg:text-6xl">
+          Vivencias en la selvita
+        </h1>
+        <p className="text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+          enim orci, mollis ac nulla eget, vulputate dignissim libero.
+        </p>
+      </Hero>
 
       <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-12 lg:pt-16 xl:pt-20">
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <h2 className="font-display">Diario en la Selvita</h2>
           <BlogFilter />
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 gap-10 pt-8 md:grid-cols-2 md:pt-10 lg:pt-12 xl:pt-14">
           {posts.map((post) => (
-            <BlogItem post={post} />
+            <BlogItem key={post.id} post={post} />
           ))}
         </div>
       </div>

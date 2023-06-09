@@ -3,10 +3,13 @@ import type { User, Post } from '@prisma/client';
 import Image from 'next/image';
 import DOMPurify from 'isomorphic-dompurify';
 import BaseIcon from '@/components/ui/BaseIcon';
-
 interface Props {
   post: Post & {
     author: User;
+    _count: {
+      comments: number;
+      likes: number;
+    };
   };
   className?: string;
 }
@@ -46,7 +49,8 @@ const BlogItem: FC<Props> = ({ post, className }) => {
               icon="reg-messages"
               className="mr-1 text-base text-primary"
             />{' '}
-            {post.comments} comentario{post.comments !== 1 ? 's' : ''}
+            {post._count.comments} comentario
+            {post._count.comments !== 1 ? 's' : ''}
           </div>
 
           <div className="text-sm font-medium text-gray-600">
@@ -54,7 +58,7 @@ const BlogItem: FC<Props> = ({ post, className }) => {
               icon="reg-heart"
               className="mr-1 text-base text-primary"
             />{' '}
-            {post.likes} like{post.likes !== 1 ? 's' : ''}
+            {post._count.likes} like{post._count.likes !== 1 ? 's' : ''}
           </div>
         </div>
 
