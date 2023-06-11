@@ -13,6 +13,7 @@ interface BasePopoverProps {
   triggerIntent?: ButtonIntent;
   triggerSize?: FormElemSize;
   triggerIcon?: Icons;
+  triggerFullWidth?: boolean;
 }
 
 const BasePopover: FC<BasePopoverProps> = ({
@@ -22,6 +23,7 @@ const BasePopover: FC<BasePopoverProps> = ({
   triggerIcon,
   triggerIntent = 'primary',
   triggerSize = 'md',
+  triggerFullWidth = false,
 }) => {
   return (
     <Popover className="relative">
@@ -30,6 +32,8 @@ const BasePopover: FC<BasePopoverProps> = ({
         intent={triggerIntent}
         size={triggerSize}
         icon={triggerIcon}
+        fullWidth={triggerFullWidth}
+        className="w-full"
       >
         {triggerText}
       </Popover.Button>
@@ -44,8 +48,8 @@ const BasePopover: FC<BasePopoverProps> = ({
         leaveTo="opacity-0 translate-y-1"
       >
         <Popover.Panel
-          className="absolute right-0 z-10 mt-3 w-screen max-w-full transform px-4 sm:px-0 lg:max-w-3xl"
-          style={{ width: `${width}px` }}
+          className="absolute right-0 z-10 mt-3 w-screen max-w-full transform lg:max-w-3xl"
+          style={{ minWidth: `${width}px` }}
         >
           <div className="rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
             {children}

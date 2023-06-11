@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
     pinterest: 'https://www.pinterest.com/',
   },
   nav: [
-    { name: 'diario', label: 'Diario', path: '/' },
+    { name: 'blog', label: 'Blog', path: '/' },
     { name: 'recentas', label: 'Recetas', path: '/recetas' },
     { name: 'contacto', label: 'Contacto', path: '/contacto' },
   ],

@@ -16,7 +16,7 @@ const Hero: FC<HeroProps> = ({ image, children }) => {
       {!!children && (
         <div className="relative z-10 flex h-full">
           <div className="w-1/12"></div>
-          <div className="w-10/12 max-w-3xl bg-dark/80 px-[7.5%] py-16 backdrop-blur-md md:py-24 lg:py-36 xl:py-44">
+          <div className="w-10/12 max-w-3xl bg-dark/80 px-[7.5%] py-24 backdrop-blur-md md:py-32 lg:py-40 xl:py-52">
             {children}
           </div>
         </div>

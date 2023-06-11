@@ -5,7 +5,7 @@ import DOMPurify from 'isomorphic-dompurify';
 import BaseIcon from '@/components/ui/BaseIcon';
 interface Props {
   post: Post & {
-    author: User;
+    author: User | null;
     _count: {
       comments: number;
       likes: number;
@@ -41,7 +41,7 @@ const BlogItem: FC<Props> = ({ post, className }) => {
         <div className="mb-6 flex items-center gap-5">
           <div className="hidden text-sm font-medium text-gray-600 sm:block">
             <BaseIcon icon="reg-user" className="mr-1 text-base text-primary" />{' '}
-            {post.author.name}
+            {post.author ? post.author.name : 'Administrador'}
           </div>
 
           <div className="text-sm font-medium text-gray-600">

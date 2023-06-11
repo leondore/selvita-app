@@ -22,6 +22,7 @@ interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: ButtonIntent;
   size?: FormElemSize;
   icon?: Icons;
+  fullWidth?: boolean;
 }
 
 const BaseButton: FC<BaseButtonProps> = ({
@@ -30,6 +31,7 @@ const BaseButton: FC<BaseButtonProps> = ({
   type = 'button',
   intent = 'primary',
   size = 'md',
+  fullWidth = false,
   className = '',
   ...props
 }) => {
@@ -48,16 +50,16 @@ const BaseButton: FC<BaseButtonProps> = ({
     },
     size: {
       sm: !!icon
-        ? 'text-sm pr-5 pl-14 py-2 rounded h-9'
+        ? `text-sm ${fullWidth ? 'pr-14' : 'pr-5'} pl-14 py-2 rounded h-9`
         : 'text-sm px-5 py-2 border-l-6 rounded h-9',
       xs: !!icon
-        ? 'text-xs pr-3 pl-12 py-2 rounded h-8'
+        ? `text-xs ${fullWidth ? 'pr-12' : 'pr-3'} pl-12 py-2 rounded h-8`
         : 'text-xs px-3 py-2 border-l-4 rounded h-8',
       md: !!icon
-        ? 'text-sm pr-8 pl-16 py-3 rounded-md h-11'
+        ? `text-sm ${fullWidth ? 'pr-16' : 'pr-8'} pl-16 py-3 rounded-md h-11`
         : 'text-sm px-8 py-3 border-l-6 rounded-md h-11',
       lg: !!icon
-        ? 'text-sm pr-9 pl-17 py-4 rounded-md h-13'
+        ? `text-sm ${fullWidth ? 'pr-17' : 'pr-9'} pl-17 py-4 rounded-md h-13`
         : 'text-sm px-9 py-4 border-l-6 rounded-md h-13',
     },
     iconSize: {
@@ -84,9 +86,11 @@ const BaseButton: FC<BaseButtonProps> = ({
   return (
     <button
       type={type}
-      className={`relative overflow-hidden text-ellipsis whitespace-nowrap font-medium transition-all duration-200 ease-in-out  ${
+      className={`relative overflow-hidden text-ellipsis whitespace-nowrap font-medium transition-all duration-200 ease-in-out ${
         !icon ? 'border-l-overlay-link' : ''
-      } ${intentClass[intent]} ${sizeClass[size]} ${className}`}
+      } ${fullWidth ? 'w-full' : ''} ${intentClass[intent]} ${
+        sizeClass[size]
+      } ${className}`}
       {...props}
     >
       {!!icon && (

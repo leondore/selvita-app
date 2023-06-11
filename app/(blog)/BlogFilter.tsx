@@ -1,7 +1,7 @@
 'use client';
 
 import type { SelectOption } from '@/types';
-import type { FormEvent } from 'react';
+import type { FC, FormEvent } from 'react';
 import BasePopover from '@/components/ui/BasePopover';
 import BaseInput from '@/components/ui/BaseInput';
 import BaseListbox from '@/components/ui/BaseListbox';
@@ -71,6 +71,7 @@ const BlogFilter = () => {
       triggerText="Filtrar"
       triggerIcon="reg-sliders-up"
       triggerIntent="secondary"
+      triggerFullWidth
     >
       <form className="pt-6" onSubmit={testFormData}>
         <div className="px-5">

@@ -42,6 +42,9 @@ module.exports = {
         sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
         display: ['var(--font-great-vibes)', 'cursive'],
       },
+      fontSize: {
+        '6.5xl': '4.125rem',
+      },
       spacing: {
         0.75: '0.1875rem',
         13: '3.25rem',
