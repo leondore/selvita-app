@@ -1,4 +1,6 @@
 import type { FC } from 'react';
+import BaseInput from '@/components/ui/BaseInput';
+import Frame from '@/components/ui/Frame';
 import Hero from '@/components/Hero';
 import BlogItem from '@/app/(blog)/BlogItem';
 import BlogFilter from '@/app/(blog)/BlogFilter';
@@ -41,14 +43,39 @@ const Home: FC<Props> = async ({ searchParams }) => {
       </Hero>
 
       <div className="mx-auto max-w-7xl px-6 pt-14 md:pt-16 lg:pt-20 xl:pt-28">
-        <div className="pb-8">
+        <div className="pb-8 md:hidden">
           <BlogFilter />
         </div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-          {posts.map((post) => (
-            <BlogItem key={post.id} post={post} />
-          ))}
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(26.5rem,_1fr)_20rem]">
+          <div>
+            {posts.map((post) => (
+              <BlogItem key={post.id} post={post} className="pb-10 lg:pb-16" />
+            ))}
+          </div>
+
+          <div>
+            <Frame className="mb-8 bg-gray-50">
+              <BaseInput
+                type="search"
+                name="search"
+                hasIcon
+                hideLabel
+                label="Buscar entradas"
+                placeholder="Buscar..."
+                defaultValue=""
+                className="col-span-12 w-full"
+              />
+            </Frame>
+
+            <Frame className="mb-8 bg-gray-50">
+              <h5 className=" relative col-span-12 after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full after:bg-gray-200 after:content-['']">
+                <span className="relative z-10 inline-block bg-gray-50 pr-2">
+                  Categorias
+                </span>
+              </h5>
+            </Frame>
+          </div>
         </div>
       </div>
     </main>

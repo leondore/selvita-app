@@ -4,40 +4,45 @@ const prisma = new PrismaClient();
 async function main() {
   // Create categories
   const catCultivo = await prisma.category.upsert({
-    where: { name: 'Cultivo' },
+    where: { slug: 'cultivo' },
     update: {},
     create: {
       name: 'Cultivo',
+      slug: 'cultivo',
     },
   });
   const catSucculentas = await prisma.category.upsert({
-    where: { name: 'Succulentas' },
+    where: { slug: 'Succulentas' },
     update: {},
     create: {
       name: 'Succulentas',
+      slug: 'succulentas',
     },
   });
   const catPlagas = await prisma.category.upsert({
-    where: { name: 'Control de Plagas' },
+    where: { slug: 'Control de Plagas' },
     update: {},
     create: {
       name: 'Control de Plagas',
+      slug: 'control-de-plagas',
     },
   });
 
   // Create tags
   const tagJardineria = await prisma.tag.upsert({
-    where: { name: 'Jardinería' },
+    where: { slug: 'Jardinería' },
     update: {},
     create: {
       name: 'Jardinería',
+      slug: 'jardineria',
     },
   });
   const tagMantenimiento = await prisma.tag.upsert({
-    where: { name: 'Mantenimiento' },
+    where: { slug: 'Mantenimiento' },
     update: {},
     create: {
       name: 'Mantenimiento',
+      slug: 'mantenimiento',
     },
   });
 

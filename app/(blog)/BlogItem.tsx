@@ -26,8 +26,8 @@ const BlogItem: FC<Props> = ({ post, className }) => {
           <Image
             src={post.image || '/blog1.webp'}
             alt={post.title}
-            width={616}
-            height={322}
+            width={872}
+            height={457}
             className="rounded-md"
           />
           <span className="absolute -bottom-6 right-6 block w-16 rounded bg-primary px-4 py-3 text-center text-sm font-medium leading-tight text-white shadow-md sm:w-17 sm:text-base sm:leading-tight">
