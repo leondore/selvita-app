@@ -4,7 +4,7 @@ import Frame from '@/components/ui/Frame';
 import Hero from '@/components/Hero';
 import BlogItem from '@/app/(blog)/BlogItem';
 import BlogFilter from '@/app/(blog)/BlogFilter';
-import CategoryList from '@/components/CategoryList';
+import BlogCategoryList from '@/app/(blog)/BlogCategoryList';
 import HeroImage from '@/public/hero.webp';
 import { db } from '@/lib/db';
 
@@ -75,7 +75,7 @@ const Home: FC<Props> = async ({ searchParams }) => {
                   Categorias
                 </span>
               </h5>
-              <CategoryList limit={8} />
+              <BlogCategoryList limit={8} />
             </Frame>
           </div>
         </div>
