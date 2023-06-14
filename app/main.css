@@ -32,11 +32,11 @@
   }
 
   h4 {
-    @apply text-lg font-medium sm:text-xl;
+    @apply text-lg font-semibold sm:text-xl;
   }
 
   h5 {
-    @apply text-base font-medium sm:text-lg;
+    @apply text-base font-semibold sm:text-lg;
   }
 
   p + p {

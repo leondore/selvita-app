@@ -4,6 +4,7 @@ import Frame from '@/components/ui/Frame';
 import Hero from '@/components/Hero';
 import BlogItem from '@/app/(blog)/BlogItem';
 import BlogFilter from '@/app/(blog)/BlogFilter';
+import CategoryList from '@/components/CategoryList';
 import HeroImage from '@/public/hero.webp';
 import { db } from '@/lib/db';
 
@@ -64,16 +65,17 @@ const Home: FC<Props> = async ({ searchParams }) => {
                 label="Buscar entradas"
                 placeholder="Buscar..."
                 defaultValue=""
-                className="col-span-12 w-full"
+                className="w-full"
               />
             </Frame>
 
             <Frame className="mb-8 bg-gray-50">
-              <h5 className=" relative col-span-12 after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full after:bg-gray-200 after:content-['']">
+              <h5 className="relative mb-2 after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full after:bg-gray-200 after:content-['']">
                 <span className="relative z-10 inline-block bg-gray-50 pr-2">
                   Categorias
                 </span>
               </h5>
+              <CategoryList limit={8} />
             </Frame>
           </div>
         </div>

@@ -1,5 +1,7 @@
 export type UnionSubType<T, U extends T> = U;
 
+export type ColumnOptions = 1 | 2 | 3 | 4 | 6 | 8 | 9 | 12;
+
 export type SizeOptions = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type FormElemSize = UnionSubType<SizeOptions, 'xs' | 'sm' | 'md' | 'lg'>;

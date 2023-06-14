@@ -1,13 +1,30 @@
 import type { FC } from 'react';
-import type { SizeOptions } from '@/types';
+import type { SizeOptions, ColumnOptions } from '@/types';
 
 type FrameProps = {
   className?: string;
   children: React.ReactNode;
+  columns?: ColumnOptions;
   gap?: SizeOptions;
 };
 
-const Frame: FC<FrameProps> = ({ children, className = '', gap = 'md' }) => {
+const Frame: FC<FrameProps> = ({
+  children,
+  className = '',
+  columns = 1,
+  gap = 'md',
+}) => {
+  const columnsClassList: { [key in ColumnOptions]: `grid-cols-${key}` } = {
+    1: 'grid-cols-1',
+    2: 'grid-cols-2',
+    3: 'grid-cols-3',
+    4: 'grid-cols-4',
+    6: 'grid-cols-6',
+    8: 'grid-cols-8',
+    9: 'grid-cols-9',
+    12: 'grid-cols-12',
+  };
+
   const gapClassList: { [key in SizeOptions]: `gap-${string}` } = {
     xs: 'gap-3',
     sm: 'gap-4',
@@ -18,7 +35,7 @@ const Frame: FC<FrameProps> = ({ children, className = '', gap = 'md' }) => {
 
   return (
     <div
-      className={`grid grid-cols-12 rounded-md px-7 py-10 ${gapClassList[gap]} ${className}`}
+      className={`grid rounded-md px-7 py-9 ${columnsClassList[columns]} ${gapClassList[gap]} ${className}`}
       data-component="frame"
     >
       {children}

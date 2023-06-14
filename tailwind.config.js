@@ -48,6 +48,7 @@ module.exports = {
       spacing: {
         0.75: '0.1875rem',
         13: '3.25rem',
+        15: '3.75rem',
         17: '4.25rem',
       },
       borderWidth: {
