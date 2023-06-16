@@ -7,6 +7,7 @@ import BlogFilter from '@/app/(blog)/BlogFilter';
 import BlogCategoryList from '@/app/(blog)/BlogCategoryList';
 import HeroImage from '@/public/hero.webp';
 import { db } from '@/lib/db';
+import BlogPostList from './BlogPostList';
 
 export const metadata = {
   title: 'Hello bro',
@@ -69,13 +70,12 @@ const Home: FC<Props> = async ({ searchParams }) => {
               />
             </Frame>
 
-            <Frame className="mb-8 bg-gray-50">
-              <h5 className="relative mb-2 after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full after:bg-gray-200 after:content-['']">
-                <span className="relative z-10 inline-block bg-gray-50 pr-2">
-                  Categorias
-                </span>
-              </h5>
+            <Frame title="Categorias" className="mb-8 bg-gray-50">
               <BlogCategoryList limit={8} />
+            </Frame>
+
+            <Frame title="Articulos Recientes" className="mb-8 bg-gray-50">
+              <BlogPostList show="recent" limit={3} />
             </Frame>
           </div>
         </div>

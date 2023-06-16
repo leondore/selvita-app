@@ -6,6 +6,7 @@ type FrameProps = {
   children: React.ReactNode;
   columns?: ColumnOptions;
   gap?: SizeOptions;
+  title?: string;
 };
 
 const Frame: FC<FrameProps> = ({
@@ -13,6 +14,7 @@ const Frame: FC<FrameProps> = ({
   className = '',
   columns = 1,
   gap = 'md',
+  title = '',
 }) => {
   const columnsClassList: { [key in ColumnOptions]: `grid-cols-${key}` } = {
     1: 'grid-cols-1',
@@ -38,6 +40,13 @@ const Frame: FC<FrameProps> = ({
       className={`grid rounded-md px-7 py-9 ${columnsClassList[columns]} ${gapClassList[gap]} ${className}`}
       data-component="frame"
     >
+      {title && (
+        <h5 className="relative mb-2 after:absolute after:left-0 after:top-1/2 after:h-[1px] after:w-full after:bg-gray-200 after:content-['']">
+          <span className="relative z-10 inline-block bg-gray-50 pr-2">
+            {title}
+          </span>
+        </h5>
+      )}
       {children}
     </div>
   );

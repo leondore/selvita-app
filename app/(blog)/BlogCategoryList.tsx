@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import ResourceList from '@/components/ResourceList';
-import ResourceListItem from '@/components/ResourceListItem';
 import { db } from '@/lib/db';
 
 interface BlogCategoryListProps {
@@ -29,7 +28,7 @@ const BlogCategoryList: FC<BlogCategoryListProps> = async ({
   return (
     <ResourceList className={className}>
       {categories.map((category) => (
-        <ResourceListItem
+        <ResourceList.Item
           key={category.id}
           label={category.name}
           url={`/category/${category.slug}`}
