@@ -56,3 +56,9 @@ export type Svg = {
   viewBox: string;
   content: string;
 };
+
+export interface Tag {
+  id: number;
+  name: string;
+  slug: string;
+}

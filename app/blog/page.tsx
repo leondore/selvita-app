@@ -2,12 +2,13 @@ import type { FC } from 'react';
 import BaseInput from '@/components/ui/BaseInput';
 import Frame from '@/components/ui/Frame';
 import Hero from '@/components/Hero';
-import BlogItem from '@/app/(blog)/BlogItem';
-import BlogFilter from '@/app/(blog)/BlogFilter';
-import BlogCategoryList from '@/app/(blog)/BlogCategoryList';
+import BlogItem from '@/app/blog/BlogItem';
+import BlogFilter from '@/app/blog/BlogFilter';
+import BlogCategoryList from '@/app/blog/BlogCategoryList';
 import HeroImage from '@/public/hero.webp';
 import { db } from '@/lib/db';
 import BlogPostList from './BlogPostList';
+import BlogTagList from './BlogTagList';
 
 export const metadata = {
   title: 'Hello bro',
@@ -76,6 +77,10 @@ const Home: FC<Props> = async ({ searchParams }) => {
 
             <Frame title="Articulos Recientes" className="mb-8 bg-gray-50">
               <BlogPostList show="recent" limit={3} />
+            </Frame>
+
+            <Frame title="Tags" className="mb-8 bg-gray-50">
+              <BlogTagList limit={8} />
             </Frame>
           </div>
         </div>

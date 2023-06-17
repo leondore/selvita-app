@@ -31,7 +31,7 @@ const BlogCategoryList: FC<BlogCategoryListProps> = async ({
         <ResourceList.Item
           key={category.id}
           label={category.name}
-          url={`/category/${category.slug}`}
+          url={`/blog/category/${category.slug}`}
           count={category._count.posts}
         />
       ))}
