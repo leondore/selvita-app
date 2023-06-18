@@ -1,14 +1,15 @@
 import type { FC } from 'react';
 import BaseInput from '@/components/ui/BaseInput';
+import Container from '@/components/ui/Container';
 import Frame from '@/components/ui/Frame';
 import Hero from '@/components/Hero';
 import BlogItem from '@/app/blog/BlogItem';
 import BlogFilter from '@/app/blog/BlogFilter';
 import BlogCategoryList from '@/app/blog/BlogCategoryList';
+import BlogPostList from '@/app/blog/BlogPostList';
+import BlogTagList from '@/app/blog/BlogTagList';
 import HeroImage from '@/public/hero.webp';
 import { db } from '@/lib/db';
-import BlogPostList from './BlogPostList';
-import BlogTagList from './BlogTagList';
 
 export const metadata = {
   title: 'Hello bro',
@@ -45,7 +46,7 @@ const Home: FC<Props> = async ({ searchParams }) => {
         </p>
       </Hero>
 
-      <div className="mx-auto max-w-7xl px-6 pt-14 md:pt-16 lg:pt-20 xl:pt-28">
+      <Container>
         <div className="pb-8 md:hidden">
           <BlogFilter />
         </div>
@@ -84,7 +85,7 @@ const Home: FC<Props> = async ({ searchParams }) => {
             </Frame>
           </div>
         </div>
-      </div>
+      </Container>
     </main>
   );
 };

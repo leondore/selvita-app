@@ -7,6 +7,7 @@ config.autoAddCss = false;
 import './main.css';
 import TopBar from '@/app/TopBar';
 import Header from '@/app/Header';
+import Footer from '@/app/Footer';
 
 const poppinsFont = Poppins({
   subsets: ['latin'],
@@ -43,7 +44,9 @@ export default function RootLayout({
           <Header />
         </header>
 
-        <main>{children}</main>
+        <main className="pb-24">{children}</main>
+
+        <Footer />
       </body>
     </html>
   );

@@ -1,13 +1,19 @@
 import BaseSvg from '@/components/ui/BaseSvg';
+import Container from '@/components/ui/Container';
+import SubscribeBox from '@/components/SubscribeBox';
 
 const Footer = () => {
   return (
-    <footer>
-      <BaseSvg
-        image="logo"
-        width={200}
-        className="mr-2 w-44 md:mr-6 md:w-52 lg:mr-12"
-      />
+    <footer className="bg-dark">
+      <Container>
+        <div className="grid grid-cols-12">
+          <div className="col-span-5">
+            <BaseSvg image="logoLight" width={240} className="w-52 md:w-60" />
+
+            <SubscribeBox className="mt-8" />
+          </div>
+        </div>
+      </Container>
     </footer>
   );
 };

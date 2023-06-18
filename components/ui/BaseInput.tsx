@@ -18,7 +18,9 @@ interface ClassList extends FormClassList {
 
 interface BaseProps
   extends InputHTMLAttributes<HTMLInputElement>,
-    FormElemProps {}
+    FormElemProps {
+  withButton?: boolean;
+}
 
 interface NoIconsProps extends BaseProps {
   type: UnionSubType<HTMLInputTypeAttribute, SetTypeOptions>;
@@ -40,6 +42,7 @@ const BaseInput: FC<BaseInputProps> = ({
   fieldSize = 'md',
   hasIcon = false,
   hideLabel = false,
+  withButton = false,
   background = 'white',
   className = '',
   ...props
@@ -66,14 +69,21 @@ const BaseInput: FC<BaseInputProps> = ({
       text: 'reg-text-size',
       url: 'reg-link',
     },
+    background: {
+      white:
+        'bg-white text-gray-900 border-gray-300 hover:border-gray-400 placeholder:text-gray-400',
+      gray: 'bg-gray-100 text-gray-900 border-gray-300 hover:border-gray-400 placeholder:text-gray-400',
+      dark: 'bg-dark text-gray-200 border-white/40 hover:border-white/50 placeholder:text-white/50',
+    },
   };
   const {
     icon: iconClass,
     iconSize: iconSizeClass,
     size: sizeClass,
+    background: bgClass,
   } = inputClassList;
 
-  const bgClass = background === 'white' ? 'bg-white' : 'bg-gray-100';
+  const roundedClass = withButton ? 'rounded-l' : 'rounded';
 
   const iconName =
     (type === 'text' || type === 'number') && icon ? icon : iconClass[type];
@@ -104,7 +114,7 @@ const BaseInput: FC<BaseInputProps> = ({
         <input
           id={keyify(label)}
           type={type}
-          className={`w-full rounded border border-gray-300 leading-none text-gray-900 transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]} ${bgClass}`}
+          className={`w-full border leading-none transition-all duration-150 ease-in-out ${roundedClass} ${sizeClass[fieldSize]} ${bgClass[background]}`}
           {...props}
         />
       </div>

@@ -23,6 +23,8 @@ interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: FormElemSize;
   icon?: Icons;
   fullWidth?: boolean;
+  fixedWidth?: boolean;
+  withField?: boolean;
 }
 
 const BaseButton: FC<BaseButtonProps> = ({
@@ -32,6 +34,8 @@ const BaseButton: FC<BaseButtonProps> = ({
   intent = 'primary',
   size = 'md',
   fullWidth = false,
+  fixedWidth = false,
+  withField = false,
   className = '',
   ...props
 }) => {
@@ -50,17 +54,17 @@ const BaseButton: FC<BaseButtonProps> = ({
     },
     size: {
       sm: !!icon
-        ? `text-sm ${fullWidth ? 'pr-14' : 'pr-5'} pl-14 py-2 rounded h-9`
-        : 'text-sm px-5 py-2 border-l-6 rounded h-9',
+        ? `text-sm ${fullWidth ? 'pr-14' : 'pr-5'} pl-14 py-2 h-9`
+        : 'text-sm px-5 py-2 h-9',
       xs: !!icon
-        ? `text-xs ${fullWidth ? 'pr-12' : 'pr-3'} pl-12 py-2 rounded h-8`
-        : 'text-xs px-3 py-2 border-l-4 rounded h-8',
+        ? `text-xs ${fullWidth ? 'pr-12' : 'pr-3'} pl-12 py-2 h-8`
+        : 'text-xs px-3 py-2 h-8',
       md: !!icon
-        ? `text-sm ${fullWidth ? 'pr-16' : 'pr-8'} pl-16 py-3 rounded-md h-11`
-        : 'text-sm px-8 py-3 border-l-6 rounded-md h-11',
+        ? `text-sm ${fullWidth ? 'pr-16' : 'pr-8'} pl-16 py-3 h-11`
+        : 'text-sm px-8 py-3 h-11',
       lg: !!icon
-        ? `text-sm ${fullWidth ? 'pr-17' : 'pr-9'} pl-17 py-4 rounded-md h-13`
-        : 'text-sm px-9 py-4 border-l-6 rounded-md h-13',
+        ? `text-sm ${fullWidth ? 'pr-17' : 'pr-9'} pl-17 py-4 h-13`
+        : 'text-sm px-9 py-4 h-13',
     },
     iconSize: {
       sm: 'text-lg w-10',
@@ -83,19 +87,21 @@ const BaseButton: FC<BaseButtonProps> = ({
     iconColor: iconColorClass,
   } = buttonClassList;
 
+  const roundedClass = withField ? 'rounded-r' : 'rounded';
+
   return (
     <button
       type={type}
-      className={`relative overflow-hidden text-ellipsis whitespace-nowrap font-medium transition-all duration-200 ease-in-out ${
-        !icon ? 'border-l-overlay-link' : ''
-      } ${fullWidth ? 'w-full' : ''} ${intentClass[intent]} ${
-        sizeClass[size]
+      className={`relative overflow-hidden text-ellipsis whitespace-nowrap font-medium transition-all duration-200 ease-in-out ${roundedClass} ${
+        fullWidth ? 'w-full' : ''
+      } ${intentClass[intent]} ${sizeClass[size]} ${
+        fixedWidth ? '!p-0' : ''
       } ${className}`}
       {...props}
     >
       {!!icon && (
         <span
-          className={`absolute bottom-1 left-1 top-1 flex items-center justify-center rounded ${iconSizeClass[size]} ${iconColorClass[intent]}`}
+          className={`absolute bottom-1 left-1 top-1 flex items-center justify-center rounded-sm ${iconSizeClass[size]} ${iconColorClass[intent]}`}
         >
           <BaseIcon icon={icon} />
         </span>

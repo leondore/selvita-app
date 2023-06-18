@@ -21,10 +21,10 @@ module.exports = {
         },
         tertiary: '#9AB257',
         accent: '#FFAA33',
-        dark: '#357436',
+        dark: '#306931',
         success: {
-          DEFAULT: '#4DA858',
-          interact: '#33703A',
+          DEFAULT: '#79b823',
+          interact: '#669A1D',
         },
         warning: {
           DEFAULT: '#FFBA2D',

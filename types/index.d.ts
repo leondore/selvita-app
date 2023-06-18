@@ -6,13 +6,20 @@ export type SizeOptions = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type FormElemSize = UnionSubType<SizeOptions, 'xs' | 'sm' | 'md' | 'lg'>;
 
+export type FormElemBackground = 'white' | 'gray' | 'dark';
+
 export type FormElemSizeClassList = {
   [key in FormElemSize]: string;
+};
+
+export type FormElemBgClassList = {
+  [key in FormElemBackground]: `bg-${string}`;
 };
 
 export interface FormClassList {
   size: FormElemSizeClassList;
   iconSize: FormElemSizeClassList;
+  background: FormElemBgClassList;
 }
 
 export interface FormElemProps {
@@ -22,7 +29,7 @@ export interface FormElemProps {
   hasIcon?: boolean;
   label: string;
   hideLabel?: boolean;
-  background?: 'white' | 'gray';
+  background?: FormElemBackground;
 }
 
 export interface SelectOption {

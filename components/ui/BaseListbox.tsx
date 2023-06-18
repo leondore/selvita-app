@@ -3,7 +3,7 @@
 import '@/components/ui/BaseListbox.css';
 
 import { Fragment, useState, type FC, SyntheticEvent } from 'react';
-import type { FormElemProps, SelectOption } from '@/types';
+import type { FormElemProps, SelectOption, FormClassList } from '@/types';
 import { Listbox, Transition } from '@headlessui/react';
 import BaseIcon, { type Icons } from '@/components/ui/BaseIcon';
 
@@ -61,7 +61,7 @@ const BaseListbox: FC<ListboxProps> = ({
 }) => {
   const [posClass, setPosClass] = useState('mt-1.5');
 
-  const listboxClassList = {
+  const listboxClassList: FormClassList = {
     size: {
       sm: !!icon ? 'text-sm pr-7 pl-13 py-2 h-9' : 'text-sm px-5 py-2 h-9',
       xs: !!icon ? 'text-xs pr-5 pl-12 py-2 h-8' : 'text-xs px-3 py-2 h-8',
@@ -74,10 +74,17 @@ const BaseListbox: FC<ListboxProps> = ({
       md: 'text-sm w-10',
       lg: 'text-base w-12',
     },
+    background: {
+      white: 'bg-white',
+      gray: 'bg-gray-100',
+      dark: 'bg-dark',
+    },
   };
-  const { iconSize: iconSizeClass, size: sizeClass } = listboxClassList;
-
-  const bgClass = background === 'white' ? 'bg-white' : 'bg-gray-100';
+  const {
+    iconSize: iconSizeClass,
+    size: sizeClass,
+    background: bgClass,
+  } = listboxClassList;
 
   return (
     <div
@@ -109,7 +116,7 @@ const BaseListbox: FC<ListboxProps> = ({
           )}
 
           <Listbox.Button
-            className={`relative w-full cursor-default rounded border border-gray-300 text-left leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]} ${bgClass}`}
+            className={`relative w-full cursor-default rounded border border-gray-300 text-left leading-none transition-all duration-150 ease-in-out hover:border-gray-400 ${sizeClass[fieldSize]} ${bgClass[background]}`}
             onClick={(e) => setPosClass(setOptionsPosition(e))}
           >
             {({ value }) => (
