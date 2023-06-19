@@ -44,7 +44,11 @@ const TopBar = () => {
 
         <div className="flex h-full items-center">
           {socialNetworks.map((network) => (
-            <SocialLink key={network} network={network} />
+            <SocialLink
+              key={network}
+              network={network}
+              className="hover:bg-overlay-link"
+            />
           ))}
         </div>
       </div>

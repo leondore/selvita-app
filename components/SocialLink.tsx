@@ -4,15 +4,16 @@ import { siteConfig } from '@/config/site';
 
 type SocialLinkProps = {
   network: 'instagram' | 'pinterest' | 'facebook' | 'twitter';
+  className?: string;
 };
 
-const SocialLink: FC<SocialLinkProps> = ({ network }) => {
+const SocialLink: FC<SocialLinkProps> = ({ network, className = '' }) => {
   const { contactInfo } = siteConfig;
 
   return (
     <a
       href={contactInfo[network]}
-      className="flex h-full w-11 items-center justify-center py-2.5 transition-colors duration-200 ease-in-out hover:bg-overlay-link focus:bg-overlay-link md:py-0"
+      className={`flex h-full w-11 items-center justify-center py-2.5 transition-colors duration-200 ease-in-out md:py-0 ${className}`}
       target="_blank"
     >
       <BaseIcon icon={network} className="text-lg" />

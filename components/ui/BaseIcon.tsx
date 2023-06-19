@@ -1,7 +1,11 @@
 import type { FC } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faPhone } from '@fortawesome/pro-light-svg-icons';
+import {
+  faEnvelope,
+  faMobileSignalOut,
+  faPhone,
+} from '@fortawesome/pro-light-svg-icons';
 import {
   faBoxesStacked,
   faChevronDown,
@@ -39,6 +43,7 @@ type BaseIconProps = {
 
 const icons = {
   'lgt-envelope': faEnvelope,
+  'lgt-mobile-signal-out': faMobileSignalOut,
   'lgt-phone': faPhone,
   'reg-boxes-stacked': faBoxesStacked,
   'reg-chevron-down': faChevronDown,
