@@ -69,7 +69,7 @@ const Footer = () => {
                 ))}
               </div>
 
-              <div className="flex items-center gap-3">
+              <Link href="tel:8296551178" className="flex items-center gap-3">
                 <BaseIcon
                   icon="lgt-mobile-signal-out"
                   className="text-5xl text-white"
@@ -80,7 +80,7 @@ const Footer = () => {
                     {contactInfo.phone}
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
